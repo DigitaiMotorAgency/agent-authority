@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agent Authority — Authority Isn't Claimed. It's Built.</title>
+<meta name="description" content="We build the digital authority that players, clubs, and sponsors expect when they research a FIFA agent." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --navy:#001B41; --navy-2:#002a5e; --blue:#0057B8; --blue-lt:#1a7fe0;
+  --gold:#C9A84C; --gold-lt:#e6cc7a; --white:#fff; --off:#F4F6FA; --mist:#E8EDF5;
+  --slate:#6B7A99; --ink:#0D1117; --max:1240px; --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--navy)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2.5rem;height:74px;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background .5s var(--ease),box-shadow .5s var(--ease),backdrop-filter .5s}
+nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160%);
+  -webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 rgba(201,168,76,.18)}
+.nav-logo{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1);transition:transform .3s}
+.nav-logo:hover{transform:scale(1.04)}
+.nav-links{display:flex;align-items:center;gap:2.4rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.13em;
+  text-transform:uppercase;color:rgba(255,255,255,.72);transition:color .25s;position:relative}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;
+  background:var(--gold);transition:width .3s var(--ease)}
+.nav-links a:not(.nav-cta):hover::after{width:100%}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{position:relative;z-index:1;border:1px solid var(--gold);color:var(--gold)!important;
+  padding:.55rem 1.4rem;border-radius:3px;overflow:hidden;transition:color .3s!important}
+.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);
+  transform-origin:left;transition:transform .35s var(--ease);z-index:-1}
+.nav-cta:hover{color:var(--navy)!important}
+.nav-cta:hover::before{transform:scaleX(1)}
+.nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.nav-burger span{display:block;width:26px;height:1.6px;background:#fff;transition:.3s}
+
+.scroll-video-hero{height:500vh;position:relative}
+.scroll-video-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;perspective:1200px}
+.scroll-video-sticky video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.video-fallback{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,#000d1f 0%,#001B41 40%,#002a5e 100%);transition:opacity .6s}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0;mix-blend-mode:screen;animation:blobMove 18s ease-in-out infinite}
+.blob-1{width:560px;height:560px;background:radial-gradient(circle,#0057B8,transparent 65%);top:-12%;left:-8%}
+.blob-2{width:480px;height:480px;background:radial-gradient(circle,#C9A84C,transparent 65%);bottom:-14%;right:-6%;animation-delay:-6s;animation-duration:22s;opacity:.32}
+.blob-3{width:400px;height:400px;background:radial-gradient(circle,#1a7fe0,transparent 65%);top:38%;left:45%;animation-delay:-11s;animation-duration:26s;opacity:.4}
+@keyframes blobMove{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(8%,12%) scale(1.12)}66%{transform:translate(-6%,-8%) scale(.92)}}
+.grid-overlay{position:absolute;inset:0;z-index:0;opacity:.5;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:90px 90px}
+#particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,16,38,.25) 0%,rgba(0,16,38,.55) 55%,rgba(0,16,38,.9) 100%)}
+.hero-content{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transform-style:preserve-3d}
+.hero-3d{transform-style:preserve-3d;transition:transform .15s ease-out;display:flex;flex-direction:column;align-items:center}
+.hero-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;padding:.5rem 1.3rem;border:1px solid rgba(201,168,76,.3);border-radius:40px;background:rgba(201,168,76,.06);backdrop-filter:blur(6px);transform:translateZ(60px);opacity:0;animation:fadeIn .8s var(--ease) .3s forwards}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7.5vw,6.2rem);font-weight:900;color:#fff;line-height:1.04;max-width:920px;margin-bottom:1.6rem;transform:translateZ(90px);opacity:0;animation:fadeIn .9s var(--ease) .5s forwards;text-shadow:0 20px 60px rgba(0,0,0,.4)}
+.hero-title em{font-style:italic;background:linear-gradient(120deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(1rem,2vw,1.22rem);font-weight:300;color:rgba(255,255,255,.82);max-width:640px;line-height:1.7;margin-bottom:2.6rem;transform:translateZ(50px);opacity:0;animation:fadeIn .9s var(--ease) .7s forwards}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;transform:translateZ(40px);opacity:0;animation:fadeIn .9s var(--ease) .9s forwards}
+@keyframes fadeIn{to{opacity:1}}
+.btn-gold{position:relative;background:linear-gradient(120deg,var(--gold),var(--gold-lt));color:var(--navy);font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.3rem;border:none;border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 30px rgba(201,168,76,.28)}
+.btn-gold::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transition:left .6s}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(201,168,76,.45)}
+.btn-gold:hover::after{left:140%}
+.btn-outline-white{background:rgba(255,255,255,.04);color:#fff;font-weight:500;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.3rem;border:1px solid rgba(255,255,255,.35);border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
+.btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.scroll-progress-bar{position:absolute;bottom:0;left:0;width:100%;height:2px;background:rgba(255,255,255,.1);z-index:5}
+.scroll-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .05s linear}
+.scroll-hint{position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn 1s var(--ease) 1.4s forwards}
+.scroll-hint span{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+.scroll-arrow{width:18px;height:18px;border-right:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);transform:rotate(45deg);animation:bounce 2s infinite}
+@keyframes bounce{0%,100%{transform:rotate(45deg) translateY(0)}50%{transform:rotate(45deg) translateY(6px)}}
+
+.container{max-width:var(--max);margin:0 auto;padding:0 2.5rem}
+.section-eyebrow{font-size:.7rem;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.1rem);font-weight:700;line-height:1.13}
+.gold-rule{width:52px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.5rem 0}
+.reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:0;transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.reveal{transform:translateY(45px)}
+.reveal-left{transform:translateX(-50px)}
+.reveal-right{transform:translateX(50px)}
+.reveal-scale{transform:scale(.9)}
+.visible{opacity:1!important;transform:none!important}
+
+.problem-section{background:var(--off);padding:9rem 0;position:relative;overflow:hidden}
+.problem-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
+.problem-text .section-title{color:var(--navy)}
+.problem-text p{font-size:1.1rem;line-height:1.8;color:var(--slate);margin-top:1.4rem}
+.problem-text p strong{color:var(--navy);font-weight:600}
+.problem-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.stat-card{position:relative;background:rgba(255,255,255,.75);backdrop-filter:blur(12px);border:1px solid rgba(0,87,184,.12);border-top:3px solid var(--gold);padding:2.1rem 1.6rem;border-radius:6px;transition:box-shadow .4s,transform .4s;overflow:hidden}
+.stat-card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(201,168,76,.18),transparent 70%)}
+.stat-card:hover{box-shadow:0 18px 50px rgba(0,27,65,.14);transform:translateY(-5px)}
+.stat-number{font-family:'Playfair Display',serif;font-size:2.7rem;font-weight:900;color:var(--navy);line-height:1}
+.stat-number .suffix{color:var(--gold)}
+.stat-label{font-size:.8rem;color:var(--slate);margin-top:.5rem;line-height:1.4;font-weight:500}
+
+.packs-section{position:relative;padding:9rem 0;overflow:hidden;background:linear-gradient(180deg,var(--navy) 0%,#000d1f 100%)}
+.packs-bg-blob{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(0,87,184,.35),transparent 70%);top:10%;right:-10%;z-index:0;animation:blobMove 24s ease-in-out infinite}
+.packs-section .container{position:relative;z-index:1}
+.packs-header{text-align:center;margin-bottom:4rem}
+.packs-header .section-title{color:#fff}
+.packs-header .gold-rule{margin:1.5rem auto}
+.packs-header p{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:580px;margin:0 auto;line-height:1.7}
+.packs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-bottom:3rem}
+.pack-card{position:relative;background:rgba(255,255,255,.05);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2.4rem 1.9rem;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;overflow:hidden}
+.pack-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent)}
+.pack-card::after{content:'';position:absolute;inset:0;border-radius:14px;opacity:0;transition:opacity .4s;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(201,168,76,.14),transparent 60%)}
+.pack-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,.35);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.pack-card:hover::after{opacity:1}
+.pack-tier{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.pack-name{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.pack-price{font-size:1.35rem;font-weight:700;color:var(--gold);margin-bottom:1.4rem}
+.pack-price span{font-size:.82rem;font-weight:400;color:rgba(255,255,255,.4)}
+.pack-divider{height:1px;background:rgba(255,255,255,.1);margin-bottom:1.4rem}
+.pack-items{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.8rem}
+.pack-items li{font-size:.84rem;color:rgba(255,255,255,.72);display:flex;align-items:flex-start;gap:.55rem;line-height:1.4}
+.pack-items li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
+.pack-result{background:rgba(201,168,76,.08);border-left:2px solid var(--gold);padding:.75rem 1rem;font-size:.79rem;font-style:italic;color:rgba(255,255,255,.62);line-height:1.5;border-radius:0 4px 4px 0}
+.signature-offer{position:relative;background:linear-gradient(135deg,rgba(201,168,76,.14),rgba(201,168,76,.04));backdrop-filter:blur(20px);border:1.5px solid rgba(201,168,76,.5);border-radius:18px;padding:3rem;display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;overflow:hidden}
+.signature-offer::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;filter:blur(80px);background:radial-gradient(circle,rgba(201,168,76,.2),transparent 70%);top:-40%;left:30%}
+.sig-content{position:relative;z-index:1}
+.sig-eyebrow{font-size:.64rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
+.sig-title{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.sig-desc{color:rgba(255,255,255,.62);font-size:.95rem;line-height:1.6;max-width:580px}
+.sig-items{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
+.sig-item{background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.25);padding:.35rem .85rem;border-radius:30px;font-size:.74rem;color:rgba(255,255,255,.75)}
+.sig-price-block{position:relative;z-index:1;text-align:center;flex-shrink:0}
+.sig-price{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;background:linear-gradient(120deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.sig-price-note{font-size:.74rem;color:rgba(255,255,255,.4);margin:.3rem 0 1.5rem}
+
+.process-section{background:var(--off);padding:9rem 0;position:relative}
+.process-header{text-align:center;margin-bottom:5rem}
+.process-header .section-title{color:var(--navy)}
+.process-header .gold-rule{margin:1.5rem auto}
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:70px;left:calc(16.66% + 1rem);right:calc(16.66% + 1rem);height:2px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.2),var(--gold));z-index:0}
+.process-step{text-align:center;padding:0 2rem;position:relative;z-index:1}
+.step-icon{width:140px;height:140px;margin:0 auto 1.4rem;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 40px rgba(0,27,65,.12);border:2px solid var(--gold);position:relative;overflow:hidden}
+.step-icon svg{width:62px;height:62px;stroke:var(--navy);fill:none;stroke-width:1.5;overflow:visible}
+.step-num{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--gold);margin-bottom:.6rem}
+.step-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
+.step-desc{font-size:.9rem;line-height:1.7;color:var(--slate)}
+/* animated icon paths */
+.step-icon.go .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.6s var(--ease) forwards}
+.step-icon.go .draw.d2{animation-delay:.3s}
+.step-icon.go .draw.d3{animation-delay:.6s}
+@keyframes draw{to{stroke-dashoffset:0}}
+.step-icon.go .pulse{animation:pulseDot 1.8s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:.3;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
+.step-icon .pulse{transform-origin:center;transform-box:fill-box}
+.step-icon.go .spin{animation:spinSlow 8s linear infinite;transform-origin:center;transform-box:fill-box}
+@keyframes spinSlow{to{transform:rotate(360deg)}}
+
+.why-section{position:relative;padding:9rem 0;overflow:hidden;background:linear-gradient(180deg,#000d1f,var(--navy))}
+.why-bg-blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(201,168,76,.16),transparent 70%);bottom:-10%;left:-8%;z-index:0;animation:blobMove 28s ease-in-out infinite}
+.why-section .container{position:relative;z-index:1}
+.why-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center}
+.why-text .section-title{color:#fff}
+.why-text p{color:rgba(255,255,255,.62);font-size:1.05rem;line-height:1.8;margin-top:1.4rem}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
+.why-card{background:rgba(255,255,255,.05);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2rem;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.why-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.35);border-color:rgba(201,168,76,.3)}
+.why-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--blue),var(--navy-2));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;box-shadow:0 8px 20px rgba(0,87,184,.3)}
+.why-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none}
+.why-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.5rem}
+.why-card p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6}
+
+.contact-section{position:relative;padding:9rem 0;overflow:hidden;background:var(--navy)}
+.contact-bg-blob{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(100px);background:radial-gradient(circle,rgba(0,87,184,.3),transparent 70%);top:0;right:-12%;z-index:0;animation:blobMove 26s ease-in-out infinite}
+.contact-section .container{position:relative;z-index:1}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+.contact-text .section-title{color:#fff}
+.contact-text p{color:rgba(255,255,255,.62);font-size:1.05rem;line-height:1.8;margin-top:1.4rem}
+.contact-details{margin-top:2.4rem;display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;font-size:.9rem;color:rgba(255,255,255,.72)}
+.contact-item-icon{width:38px;height:38px;border:1px solid rgba(201,168,76,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(201,168,76,.05)}
+.contact-item-icon svg{width:17px;height:17px;stroke:var(--gold);fill:none}
+.contact-form{background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;gap:1.2rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.form-group{display:flex;flex-direction:column;gap:.4rem}
+.form-group label{font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:.85rem 1rem;color:#fff;font-size:.9rem;font-family:'Inter',sans-serif;transition:border-color .25s,background .25s;outline:none;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.28)}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.08)}
+.form-group select option{background:var(--navy)}
+.form-group textarea{resize:vertical;min-height:110px}
+
+footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,.15)}
+.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.footer-logo{height:38px;filter:brightness(0) invert(1);opacity:.7}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.3);letter-spacing:.05em}
+.footer-tagline{font-family:'Playfair Display',serif;font-size:.85rem;font-style:italic;color:var(--gold);opacity:.75}
+
+.nav-mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,16,38,.98);backdrop-filter:blur(20px);z-index:1100;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem}
+.nav-mobile-overlay.open{display:flex}
+.nav-mobile-overlay a{font-family:'Playfair Display',serif;font-size:1.7rem;color:#fff;text-decoration:none;transition:color .2s}
+.nav-mobile-overlay a:hover{color:var(--gold)}
+.nav-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;background:none;border:none}
+
+@media(max-width:768px){
+  nav{padding:0 1.4rem}
+  .scroll-video-hero{height:100vh}
+  .scroll-video-sticky{position:relative;height:100vh;perspective:none}
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .hero-3d{transform:none!important}
+  .problem-inner,.why-inner,.contact-inner{grid-template-columns:1fr;gap:3rem}
+  .problem-stats{grid-template-columns:1fr 1fr}
+  .packs-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr;gap:3rem}
+  .process-steps::before{display:none}
+  .why-grid{grid-template-columns:1fr}
+  .signature-offer{grid-template-columns:1fr;text-align:center;padding:2rem}
+  .sig-price-block{order:-1}
+  .sig-items{justify-content:center}
+  .form-row{grid-template-columns:1fr}
+  .footer-inner{flex-direction:column;text-align:center}
+  .hero-title{font-size:2.5rem}
+}
+@media(prefers-reduced-motion:reduce){
+  .scroll-video-hero{height:100vh}
+  .blob,.packs-bg-blob,.why-bg-blob,.contact-bg-blob{animation:none}
+  .reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <img src="agent-authority-logo.png" alt="Agent Authority" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+  <span style="display:none;font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.1em">AGENT AUTHORITY</span>
+  <ul class="nav-links">
+    <li><a href="#problem">The Problem</a></li>
+    <li><a href="#packs">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+  <div class="nav-burger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="nav-mobile-overlay" id="mobileNav">
+  <button class="nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">&#10005;</button>
+  <a href="#problem" onclick="document.getElementById('mobileNav').classList.remove('open')">The Problem</a>
+  <a href="#packs" onclick="document.getElementById('mobileNav').classList.remove('open')">Services</a>
+  <a href="#process" onclick="document.getElementById('mobileNav').classList.remove('open')">Process</a>
+  <a href="#why" onclick="document.getElementById('mobileNav').classList.remove('open')">Why Us</a>
+  <a href="#contact" onclick="document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold)">Book a Call</a>
+</div>
+
+<section class="scroll-video-hero" id="scroll-hero">
+  <div class="scroll-video-sticky">
+    <!-- VIDEO: download from pexels.com/videos or mixkit.co (search "business meeting luxury","executive handshake","contract signing"); save as hero.mp4 here -->
+    <video id="heroVideo" src="hero.mp4" playsinline muted preload="auto"></video>
+    <div class="video-fallback" id="videoFallback">
+      <div class="grid-overlay"></div>
+      <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
+    </div>
+    <canvas id="particles"></canvas>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-3d" id="hero3d">
+        <p class="hero-eyebrow">FIFA Licensed Agents &middot; Digital Authority</p>
+        <h1 class="hero-title">Authority Isn't<br><em>Claimed.</em><br>It's Built.</h1>
+        <p class="hero-sub">We build the digital authority that players, clubs, and sponsors expect when they research a FIFA agent.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn-gold">Book a Strategy Call</a>
+          <a href="#packs" class="btn-outline-white">View Services</a>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-hint"><span>Scroll</span><div class="scroll-arrow"></div></div>
+    <div class="scroll-progress-bar"><div class="scroll-progress-fill" id="progressFill"></div></div>
+  </div>
+</section>
+
+<section class="problem-section" id="problem">
+  <div class="container">
+    <div class="problem-inner">
+      <div class="problem-text reveal-left">
+        <p class="section-eyebrow">The Reality</p>
+        <h2 class="section-title">Every time someone<br>Googles you &mdash;<br>what do they find?</h2>
+        <div class="gold-rule"></div>
+        <p>A player's team is evaluating agents. A club's sporting director is comparing representation options. A sponsor is vetting who moves their investment.</p>
+        <p style="margin-top:1rem"><strong>They all do the same thing first: they search your name.</strong> If what they find doesn't match the level of agent you are, the opportunity goes to someone else.</p>
+        <p style="margin-top:1rem">Your track record deserves a digital presence that reflects it. That's exactly what we build.</p>
+      </div>
+      <div class="problem-stats reveal-right">
+        <div class="stat-card"><div class="stat-number" data-target="87" data-suffix="%">0</div><div class="stat-label">of decision-makers research agents online before first contact</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="7" data-suffix="s">0</div><div class="stat-label">to form a first impression of your digital presence</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="94" data-suffix="%">0</div><div class="stat-label">of FIFA agents have no professional online presence</div></div>
+        <div class="stat-card"><div class="stat-number" data-target="3" data-suffix="&times;">0</div><div class="stat-label">more likely to close deals with a credible digital profile</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="packs-section" id="packs">
+  <div class="packs-bg-blob"></div>
+  <div class="container">
+    <div class="packs-header reveal">
+      <p class="section-eyebrow">Our Services</p>
+      <h2 class="section-title">Built for Every Stage<br>of Your Career</h2>
+      <div class="gold-rule"></div>
+      <p>From your first digital footprint to full international positioning &mdash; every pack is designed around one outcome: authority.</p>
+    </div>
+    <div class="packs-grid">
+      <div class="pack-card reveal-scale tilt" style="transition-delay:.05s">
+        <p class="pack-tier">Pack 01</p><h3 class="pack-name">Foundation</h3>
+        <p class="pack-price">USD 1,500 <span>&ndash; 2,500</span></p><div class="pack-divider"></div>
+        <ul class="pack-items"><li>Professional website (1&ndash;5 pages)</li><li>Domain &amp; initial setup</li><li>Personal brand design</li><li>Contact form</li><li>WhatsApp integration</li><li>Optimized professional profile</li><li>Mobile-first version</li></ul>
+        <div class="pack-result">"When a player or club Googles you, they find a professional presence."</div>
+      </div>
+      <div class="pack-card reveal-scale tilt" style="transition-delay:.15s">
+        <p class="pack-tier">Pack 02</p><h3 class="pack-name">Authority</h3>
+        <p class="pack-price">USD 4,000 <span>&ndash; 7,500</span></p><div class="pack-divider"></div>
+        <ul class="pack-items"><li>Everything in Foundation</li><li>Personal branding</li><li>Professional biography</li><li>Digital player portfolio</li><li>Instagram &amp; LinkedIn integration</li><li>Initial SEO optimization</li><li>Digital press kit</li><li>News section</li><li>Meeting scheduler</li></ul>
+        <div class="pack-result">"Move from having a presence to being perceived as an authority."</div>
+      </div>
+      <div class="pack-card reveal-scale tilt" style="transition-delay:.25s">
+        <p class="pack-tier">Pack 03</p><h3 class="pack-name">Elite</h3>
+        <p class="pack-price">USD 10,000 <span>&ndash; 20,000</span></p><div class="pack-divider"></div>
+        <ul class="pack-items"><li>Premium website</li><li>Complete personal brand</li><li>Audiovisual production</li><li>Authority articles</li><li>LinkedIn strategy</li><li>Reputation management</li><li>Acquisition funnel</li><li>Basic CRM</li><li>WhatsApp automations</li><li>Club &amp; investor decks</li></ul>
+        <div class="pack-result">"Position yourself at the level of international agencies."</div>
+      </div>
+      <div class="pack-card reveal-scale tilt" style="transition-delay:.35s">
+        <p class="pack-tier">Pack 04</p><h3 class="pack-name">Done For You</h3>
+        <p class="pack-price">USD 2,000 <span>&ndash; 5,000 / mo</span></p><div class="pack-divider"></div>
+        <ul class="pack-items"><li>Permanent website updates</li><li>LinkedIn publications</li><li>Content management</li><li>Graphic design</li><li>New landing pages</li><li>Ongoing SEO</li><li>Priority support</li></ul>
+        <div class="pack-result">"The agent delegates their entire digital presence completely."</div>
+      </div>
+    </div>
+    <div class="signature-offer reveal">
+      <div class="sig-content">
+        <p class="sig-eyebrow">&#9733; Most Popular &middot; Fastest to Close</p>
+        <h3 class="sig-title">Agent Authority Signature</h3>
+        <p class="sig-desc">The complete package for the serious agent who wants to move fast. Premium web, personal brand, optimized LinkedIn, WhatsApp integration, meeting calendar, professional biography and PDF dossier &mdash; all in one.</p>
+        <div class="sig-items"><span class="sig-item">Premium Web</span><span class="sig-item">Personal Brand</span><span class="sig-item">LinkedIn</span><span class="sig-item">WhatsApp</span><span class="sig-item">Meeting Calendar</span><span class="sig-item">Biography</span><span class="sig-item">PDF Dossier</span></div>
+      </div>
+      <div class="sig-price-block">
+        <div class="sig-price">$2,997</div>
+        <div class="sig-price-note">one-time investment</div>
+        <a href="#contact" class="btn-gold">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <p class="section-eyebrow">How It Works</p>
+      <h2 class="section-title">Three Steps to Authority</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="process-steps">
+      <div class="process-step reveal" style="transition-delay:.05s">
+        <div class="step-icon" data-icon="diagnosis">
+          <svg viewBox="0 0 64 64"><circle class="draw" cx="27" cy="27" r="17" style="--len:107"/><line class="draw d2" x1="39" y1="39" x2="54" y2="54" style="--len:21"/><circle class="pulse" cx="27" cy="27" r="6" fill="#C9A84C" stroke="none"/></svg>
+        </div>
+        <span class="step-num">STEP 01</span><h3 class="step-title">Diagnosis</h3>
+        <p class="step-desc">We audit your current digital footprint, analyze your market positioning, and define the authority gap between where you are and where you need to be.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.2s">
+        <div class="step-icon" data-icon="build">
+          <svg viewBox="0 0 64 64"><rect class="draw" x="14" y="34" width="14" height="16" style="--len:60"/><rect class="draw d2" x="30" y="24" width="14" height="26" style="--len:80"/><rect class="draw d3" x="36" y="14" width="14" height="36" style="--len:100"/><circle class="pulse" cx="21" cy="28" r="4" fill="#C9A84C" stroke="none"/></svg>
+        </div>
+        <span class="step-num">STEP 02</span><h3 class="step-title">Construction</h3>
+        <p class="step-desc">We build every element of your digital authority &mdash; web, brand, content, profiles &mdash; with the precision and quality your reputation demands.</p>
+      </div>
+      <div class="process-step reveal" style="transition-delay:.35s">
+        <div class="step-icon" data-icon="authority">
+          <svg viewBox="0 0 64 64"><polygon class="draw spin" points="32,10 39,25 55,27 43,38 46,54 32,46 18,54 21,38 9,27 25,25" style="--len:170"/><circle class="pulse" cx="32" cy="32" r="5" fill="#C9A84C" stroke="none"/></svg>
+        </div>
+        <span class="step-num">STEP 03</span><h3 class="step-title">Authority</h3>
+        <p class="step-desc">You launch with a presence that commands respect. Players, clubs, and sponsors find exactly what they expect from a top-tier FIFA agent.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why">
+  <div class="why-bg-blob"></div>
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-text reveal-left">
+        <p class="section-eyebrow">Why Agent Authority</p>
+        <h2 class="section-title">Not a marketing<br>agency. A firm.</h2>
+        <div class="gold-rule"></div>
+        <p>Generic agencies build websites. We build reputations. Every decision &mdash; from typography to content strategy &mdash; is made with one question in mind: does this make the agent look like the authority they are?</p>
+        <p style="margin-top:1rem">We work exclusively in the football representation space, which means we understand the language, the stakes, and the expectations of everyone at the table.</p>
+      </div>
+      <div class="why-grid reveal-right">
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h4>Football-Specific</h4><p>We speak the language of clubs, agents, and transfers. No generic marketing playbooks.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div><h4>Fast Delivery</h4><p>The Signature pack goes live in 10 business days. No endless revisions.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.31 4.31a11.95 11.95 0 015.81-5.52l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.94"/></svg></div><h4>Measurable Results</h4><p>Every build is optimized to be found. We track visibility, not just aesthetics.</p></div>
+        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg></div><h4>Elite Discretion</h4><p>We operate with the same confidentiality you apply to your transfers.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-bg-blob"></div>
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-text reveal-left">
+        <p class="section-eyebrow">Start Here</p>
+        <h2 class="section-title">Let's build your<br>authority.</h2>
+        <div class="gold-rule"></div>
+        <p>Book a 30-minute strategy call. We'll audit your current digital presence, identify the gaps, and map exactly what needs to be built.</p>
+        <p style="margin-top:1rem;font-style:italic;color:rgba(255,255,255,.4)">No pitch. No pressure. Just clarity on where you stand and what it takes to get where you should be.</p>
+        <div class="contact-details">
+          <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.28 6.72 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.37c0-.52-.35-.97-.85-1.09l-4.42-1.11c-.44-.11-.9.06-1.17.42l-.97 1.29c-.28.38-.77.54-1.21.38a12.04 12.04 0 01-7.14-7.14c-.16-.44 0-.93.38-1.21l1.29-.97c.36-.27.53-.73.42-1.17L6.96 3.1a1.13 1.13 0 00-1.09-.85H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><span>[YOUR WHATSAPP NUMBER]</span></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.24a2.25 2.25 0 01-1.07 1.92l-7.5 4.61a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.92V6.75"/></svg></div><span>[YOUR EMAIL ADDRESS]</span></div>
+        </div>
+      </div>
+      <div class="contact-form reveal-right">
+        <div class="form-row">
+          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" /></div>
+          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+        </div>
+        <div class="form-group"><label>Email</label><input type="email" placeholder="john@example.com" /></div>
+        <div class="form-group"><label>WhatsApp / Phone</label><input type="tel" placeholder="+1 000 000 0000" /></div>
+        <div class="form-group"><label>I'm interested in</label>
+          <select><option value="">Select a pack...</option><option>Foundation &mdash; USD 1,500&ndash;2,500</option><option>Authority &mdash; USD 4,000&ndash;7,500</option><option>Elite &mdash; USD 10,000&ndash;20,000</option><option>Done For You &mdash; USD 2,000&ndash;5,000/mo</option><option>Signature &mdash; USD 2,997</option><option>I'm not sure yet</option></select>
+        </div>
+        <div class="form-group"><label>Tell us about yourself</label><textarea placeholder="How many players do you represent? What markets do you work in?"></textarea></div>
+        <button class="btn-gold" style="width:100%;font-size:.9rem;padding:1.1rem" onclick="handleFormSubmit(event)">Request Strategy Call &rarr;</button>
+        <p style="font-size:.74rem;color:rgba(255,255,255,.3);text-align:center;margin-top:.3rem">We respond within 24 hours. All conversations are confidential.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <img src="agent-authority-logo.png" alt="Agent Authority" class="footer-logo" onerror="this.style.display='none'" />
+      <p class="footer-tagline">Authority Isn't Claimed. It's Built.</p>
+      <p class="footer-copy">&copy; 2026 Agent Authority. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+const nav=document.getElementById('mainNav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
+
+const heroVideo=document.getElementById('heroVideo'),fallback=document.getElementById('videoFallback');
+heroVideo.addEventListener('loadeddata',()=>{if(heroVideo.readyState>=2)fallback.style.opacity='0'});
+heroVideo.addEventListener('error',()=>fallback.style.opacity='1');
+
+(function(){
+  const v=document.getElementById('heroVideo'),hero=document.getElementById('scroll-hero'),pf=document.getElementById('progressFill');
+  if(!v||!hero)return;
+  const mob=matchMedia('(max-width:768px)').matches,red=matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(mob||red){v.autoplay=true;v.loop=true;v.play().catch(()=>{});return;}
+  v.pause();v.currentTime=0;let ready=false;
+  v.addEventListener('loadedmetadata',()=>ready=true);v.load();
+  function upd(){
+    if(!ready||!v.duration)return;
+    const r=hero.getBoundingClientRect(),s=-r.top,sc=hero.offsetHeight-innerHeight;
+    if(s<=0){v.currentTime=0;pf.style.width='0%';return;}
+    if(s>=sc){v.currentTime=v.duration;pf.style.width='100%';return;}
+    const p=s/sc;v.currentTime=p*v.duration;pf.style.width=(p*100)+'%';
+  }
+  let tick=false;
+  addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(()=>{upd();tick=false});tick=true;}},{passive:true});
+  addEventListener('resize',upd);
+})();
+
+(function(){
+  const el=document.getElementById('hero3d');
+  if(!el||matchMedia('(max-width:768px)').matches)return;
+  addEventListener('mousemove',e=>{
+    const x=(e.clientX/innerWidth-.5)*2,y=(e.clientY/innerHeight-.5)*2;
+    el.style.transform='rotateY('+(x*5)+'deg) rotateX('+(-y*5)+'deg)';
+  });
+})();
+
+(function(){
+  const c=document.getElementById('particles');if(!c)return;
+  const ctx=c.getContext('2d');let w,h,pts=[];
+  function size(){w=c.width=innerWidth;h=c.height=innerHeight;}
+  size();addEventListener('resize',size);
+  const N=Math.min(70,Math.floor(innerWidth/22));
+  for(let i=0;i<N;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});
+  function draw(){
+    ctx.clearRect(0,0,w,h);
+    for(const p of pts){
+      p.x+=p.vx;p.y+=p.vy;
+      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,7);ctx.fillStyle='rgba(201,168,76,.5)';ctx.fill();
+    }
+    for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
+      const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
+      if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(255,255,255,'+(.12*(1-d/130))+')';ctx.lineWidth=.5;ctx.stroke();}
+    }
+    requestAnimationFrame(draw);
+  }
+  if(!matchMedia('(prefers-reduced-motion:reduce)').matches)draw();
+})();
+
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>io.observe(el));
+
+// process icons draw when visible
+const iconIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelector('.step-icon')?.classList.add('go');iconIO.unobserve(e.target);}}),{threshold:.5});
+document.querySelectorAll('.process-step').forEach(s=>iconIO.observe(s));
+
+const cio=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.target,sf=el.dataset.suffix||'';
+  let s=0;const step=t/45;const tm=setInterval(()=>{s+=step;if(s>=t){el.innerHTML=t+'<span class="suffix">'+sf+'</span>';clearInterval(tm);}else el.innerHTML=Math.floor(s)+'<span class="suffix">'+sf+'</span>';},28);
+  cio.unobserve(el);
+}),{threshold:.5});
+document.querySelectorAll('.stat-number[data-target]').forEach(c=>cio.observe(c));
+
+document.querySelectorAll('.tilt').forEach(card=>{
+  card.addEventListener('mousemove',e=>{
+    const r=card.getBoundingClientRect();
+    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
+    card.style.setProperty('--my',(e.clientY-r.top)+'px');
+  });
+});
+
+function handleFormSubmit(e){
+  e.preventDefault();const b=e.target;
+  b.innerHTML='&#9989; Request sent &mdash; we\'ll be in touch within 24h';
+  b.style.background='rgba(255,255,255,.15)';b.style.color='#fff';b.style.boxShadow='none';b.disabled=true;
+}
+</script>
+</body>
+</html>
