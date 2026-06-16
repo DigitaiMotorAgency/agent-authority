@@ -14,7 +14,7 @@
 
   <!-- PLAYER NETWORK — directory updated frequently -->
   <url>
-    <loc>https://agentauthority.io/players.html</loc>
+    <loc>https://agentauthority.lat/players.html</loc>
     <lastmod>2026-06-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
