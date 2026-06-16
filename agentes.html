@@ -257,14 +257,17 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 <body>
 
 <nav id="mainNav">
-  <img src="agent-authority-logo-white.png" alt="Agent Authority" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
-  <span style="display:none;font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.1em">AGENT AUTHORITY</span>
+  <a href="index.html" style="display:flex;align-items:center;text-decoration:none">
+    <img src="agent-authority-logo-white.png" alt="Agent Authority" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+    <span style="display:none;font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.1em">AGENT AUTHORITY</span>
+  </a>
   <div class="nav-right">
     <ul class="nav-links">
       <li><a href="#problem" data-i18n="nav.problem">The Problem</a></li>
       <li><a href="#whynow" data-i18n="nav.why">Why Now</a></li>
       <li><a href="#packs" data-i18n="nav.packages">Packages</a></li>
       <li><a href="#process" data-i18n="nav.process">Process</a></li>
+      <li><a href="players.html" data-i18n="nav.players">Player Network</a></li>
       <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Book a Call</a></li>
     </ul>
     <div class="lang-toggle">
@@ -281,6 +284,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
   <a href="#whynow" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.why">Why Now</a>
   <a href="#packs" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.packages">Packages</a>
   <a href="#process" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.process">Process</a>
+  <a href="players.html" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.players">Player Network</a>
   <a href="#contact" onclick="document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold)" data-i18n="nav.cta">Book a Call</a>
 </div>
 
@@ -482,7 +486,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 // ══════════ i18n DICTIONARY ══════════
 const I18N={
  en:{
-  'nav.problem':'The Problem','nav.why':'Why Now','nav.packages':'Packages','nav.process':'Process','nav.cta':'Book a Call',
+  'nav.problem':'The Problem','nav.why':'Why Now','nav.packages':'Packages','nav.process':'Process','nav.players':'Player Network','nav.cta':'Book a Call',
   'hero.eyebrow':"Authority Isn't Claimed. It's Built.",
   'hero.title':'Build a Football Agency Players <span class="hl">Trust.</span> Clubs <span class="hl">Respect.</span> Sponsors <span class="hl">Notice.</span>',
   'hero.sub':'We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders through premium branding, web infrastructure and strategic visibility.',
@@ -520,7 +524,7 @@ const I18N={
   'form.sent':'✅ Request sent — we\'ll be in touch within 24h'
  },
  es:{
-  'nav.problem':'El Problema','nav.why':'Por Qué Ahora','nav.packages':'Paquetes','nav.process':'Proceso','nav.cta':'Agendar Llamada',
+  'nav.problem':'El Problema','nav.why':'Por Qué Ahora','nav.packages':'Paquetes','nav.process':'Proceso','nav.players':'Red de Jugadores','nav.cta':'Agendar Llamada',
   'hero.eyebrow':'La Autoridad No Se Reclama. Se Construye.',
   'hero.title':'Construí una Agencia de Fútbol en la que los Jugadores <span class="hl">Confían.</span> Los Clubes <span class="hl">Respetan.</span> Los Sponsors <span class="hl">Notan.</span>',
   'hero.sub':'Ayudamos a agentes de fútbol a establecer autoridad digital, atraer talento de élite y posicionarse como líderes del sector mediante branding premium, infraestructura web y visibilidad estratégica.',
