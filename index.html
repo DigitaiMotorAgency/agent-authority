@@ -4,7 +4,46 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Agent Authority — Authority Isn't Claimed. It's Built.</title>
-<meta name="description" content="We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders." />
+<meta name="description" content="We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders through premium branding, web infrastructure and strategic visibility." />
+<link rel="canonical" href="https://agentauthority.lat/" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#001B41" />
+<link rel="icon" type="image/png" href="agent-authority-logo.png" />
+<link rel="apple-touch-icon" href="agent-authority-logo.png" />
+
+<!-- Open Graph (WhatsApp / Facebook / LinkedIn) -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Agent Authority" />
+<meta property="og:url" content="https://agentauthority.lat/" />
+<meta property="og:title" content="Agent Authority — Authority Isn't Claimed. It's Built." />
+<meta property="og:description" content="We help football agents build digital authority, attract elite talent, and position themselves as industry leaders." />
+<meta property="og:image" content="https://agentauthority.lat/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="es_ES" />
+
+<!-- Twitter / X -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Agent Authority — Authority Isn't Claimed. It's Built." />
+<meta name="twitter:description" content="We help football agents build digital authority, attract elite talent, and position themselves as industry leaders." />
+<meta name="twitter:image" content="https://agentauthority.lat/og-image.jpg" />
+
+<!-- Structured Data: Organization -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Agent Authority",
+  "description": "Premium digital branding and web infrastructure for football agents.",
+  "url": "https://agentauthority.lat/",
+  "slogan": "Authority Isn't Claimed. It's Built.",
+  "image": "https://agentauthority.lat/og-image.jpg",
+  "areaServed": "Worldwide",
+  "serviceType": ["Personal Branding", "Web Design", "Digital Authority Strategy"]
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -21,7 +60,7 @@ body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);ove
 
 nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2.5rem;height:74px;display:flex;align-items:center;justify-content:space-between;transition:background .5s var(--ease),box-shadow .5s var(--ease),backdrop-filter .5s}
 nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 rgba(201,168,76,.18)}
-.nav-logo{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1);transition:transform .3s}
+.nav-logo{height:46px;width:auto;object-fit:contain;transition:transform .3s}
 .nav-logo:hover{transform:scale(1.04)}
 .nav-right{display:flex;align-items:center;gap:2rem}
 .nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
@@ -38,8 +77,8 @@ nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-burger span{display:block;width:26px;height:1.6px;background:#fff;transition:.3s}
 
-.scroll-video-hero{height:500vh;position:relative}
-.scroll-video-sticky{position:sticky;top:0;height:100vh;width:100%;overflow:hidden;perspective:1200px}
+.scroll-video-hero{height:100vh;position:relative}
+.scroll-video-sticky{position:relative;top:0;height:100vh;width:100%;overflow:hidden;perspective:1200px}
 .scroll-video-sticky video{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1}
 .video-fallback{position:absolute;inset:0;z-index:0;background:linear-gradient(135deg,#000d1f 0%,#001B41 40%,#002a5e 100%);transition:opacity .6s}
 .blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.55;z-index:0;mix-blend-mode:screen;animation:blobMove 18s ease-in-out infinite}
@@ -52,7 +91,7 @@ nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160
 .hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,16,38,.3) 0%,rgba(0,16,38,.55) 55%,rgba(0,16,38,.9) 100%)}
 .hero-content{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transform-style:preserve-3d}
 .hero-3d{transform-style:preserve-3d;transition:transform .15s ease-out;display:flex;flex-direction:column;align-items:center;max-width:1000px}
-.hero-logo{height:64px;margin-bottom:1.6rem;filter:brightness(0) invert(1);transform:translateZ(80px);opacity:0;animation:fadeIn .8s var(--ease) .2s forwards}
+.hero-logo{height:74px;margin-bottom:1.6rem;transform:translateZ(80px);opacity:0;animation:fadeIn .8s var(--ease) .2s forwards}
 .hero-eyebrow{font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;letter-spacing:.15em;color:var(--gold);margin-bottom:1.4rem;transform:translateZ(60px);opacity:0;animation:fadeIn .8s var(--ease) .35s forwards}
 .hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.6vw,3.7rem);font-weight:900;color:#fff;line-height:1.12;max-width:920px;margin-bottom:1.5rem;transform:translateZ(90px);opacity:0;animation:fadeIn .9s var(--ease) .5s forwards;text-shadow:0 20px 60px rgba(0,0,0,.4)}
 .hero-title .hl{background:linear-gradient(120deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
@@ -64,8 +103,6 @@ nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160
 .btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(201,168,76,.45)}.btn-gold:hover::after{left:140%}
 .btn-outline-white{background:rgba(255,255,255,.04);color:#fff;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:1rem 2.1rem;border:1px solid rgba(255,255,255,.35);border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
 .btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
-.scroll-progress-bar{position:absolute;bottom:0;left:0;width:100%;height:2px;background:rgba(255,255,255,.1);z-index:5}
-.scroll-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .05s linear}
 .scroll-hint{position:absolute;bottom:2.4rem;left:50%;transform:translateX(-50%);z-index:5;display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeIn 1s var(--ease) 1.4s forwards}
 .scroll-hint span{font-size:.62rem;letter-spacing:.25em;text-transform:uppercase;color:rgba(255,255,255,.4)}
 .scroll-arrow{width:18px;height:18px;border-right:1px solid rgba(255,255,255,.35);border-bottom:1px solid rgba(255,255,255,.35);transform:rotate(45deg);animation:bounce 2s infinite}
@@ -185,7 +222,7 @@ nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160
 
 footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,.15)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.footer-logo{height:38px;filter:brightness(0) invert(1);opacity:.7}
+.footer-logo{height:38px;opacity:.85}
 .footer-tagline{font-family:'Playfair Display',serif;font-size:.85rem;font-style:italic;color:var(--gold);opacity:.75}
 .footer-copy{font-size:.78rem;color:rgba(255,255,255,.3);letter-spacing:.05em}
 
@@ -204,7 +241,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
   nav{padding:0 1.4rem}
   .scroll-video-hero{height:100vh}.scroll-video-sticky{position:relative;height:100vh;perspective:none}
   .nav-links{display:none}.nav-burger{display:flex}
-  .hero-3d{transform:none!important}.hero-logo{height:48px}
+  .hero-3d{transform:none!important}.hero-logo{height:56px}
   .problem-inner,.contact-inner{grid-template-columns:1fr;gap:3rem}
   .whynow-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
@@ -220,7 +257,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 <body>
 
 <nav id="mainNav">
-  <img src="agent-authority-logo.png" alt="Agent Authority" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
+  <img src="agent-authority-logo-white.png" alt="Agent Authority" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
   <span style="display:none;font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.1em">AGENT AUTHORITY</span>
   <div class="nav-right">
     <ul class="nav-links">
@@ -250,7 +287,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 <!-- HERO -->
 <section class="scroll-video-hero" id="scroll-hero">
   <div class="scroll-video-sticky">
-    <video id="heroVideo" src="hero.mp4" poster="hero-poster.jpg" playsinline muted preload="auto"></video>
+    <video id="heroVideo" src="hero.mp4" poster="hero-poster.jpg" autoplay loop muted playsinline preload="auto"></video>
     <div class="video-fallback" id="videoFallback">
       <div class="grid-overlay"></div><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
     </div>
@@ -258,7 +295,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-3d" id="hero3d">
-        <img src="agent-authority-logo.png" alt="Agent Authority" class="hero-logo" onerror="this.style.display='none'" />
+        <img src="agent-authority-logo-white.png" alt="Agent Authority" class="hero-logo" onerror="this.style.display='none'" />
         <p class="hero-eyebrow" data-i18n="hero.eyebrow">Authority Isn't Claimed. It's Built.</p>
         <h1 class="hero-title" data-i18n="hero.title">Build a Football Agency Players <span class="hl">Trust.</span> Clubs <span class="hl">Respect.</span> Sponsors <span class="hl">Notice.</span></h1>
         <p class="hero-sub" data-i18n="hero.sub">We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders through premium branding, web infrastructure and strategic visibility.</p>
@@ -269,7 +306,6 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
       </div>
     </div>
     <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span><div class="scroll-arrow"></div></div>
-    <div class="scroll-progress-bar"><div class="scroll-progress-fill" id="progressFill"></div></div>
   </div>
 </section>
 
@@ -384,50 +420,6 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
   </div>
 </section>
 
-<!-- CASE STUDIES -->
-<section class="cases-section" id="cases">
-  <div class="cases-blob"></div>
-  <div class="container">
-    <div class="cases-header reveal">
-      <p class="section-eyebrow" data-i18n="cases.eyebrow">Selected Work</p>
-      <h2 class="section-title" data-i18n="cases.title">Recent Authority Projects</h2>
-      <div class="gold-rule"></div>
-    </div>
-    <p class="cases-note reveal" data-i18n="cases.note">Project showcase — sample structure, ready for your real case studies.</p>
-    <div class="cases-grid">
-      <div class="case-card reveal-scale" style="transition-delay:.05s">
-        <div class="case-img"><span data-i18n="cases.imgph">Project image</span></div>
-        <div class="case-body">
-          <p class="case-tag" data-i18n="cases.c1tag">Personal Brand · Web</p>
-          <h4 data-i18n="cases.c1title">Project Title</h4>
-          <div class="case-row"><span class="lbl" data-i18n="cases.lblproblem">Problem</span><span class="val" data-i18n="cases.c1problem">A summary of the challenge the agent faced before working with us.</span></div>
-          <div class="case-row"><span class="lbl" data-i18n="cases.lblsolution">Solution</span><span class="val" data-i18n="cases.c1solution">What we built and the strategy behind it.</span></div>
-          <div class="case-row result"><span class="lbl" data-i18n="cases.lblresult">Result</span><span class="val" data-i18n="cases.c1result">The measurable outcome will go here.</span></div>
-        </div>
-      </div>
-      <div class="case-card reveal-scale" style="transition-delay:.15s">
-        <div class="case-img"><span data-i18n="cases.imgph">Project image</span></div>
-        <div class="case-body">
-          <p class="case-tag" data-i18n="cases.c2tag">Full Ecosystem</p>
-          <h4 data-i18n="cases.c2title">Project Title</h4>
-          <div class="case-row"><span class="lbl" data-i18n="cases.lblproblem">Problem</span><span class="val" data-i18n="cases.c2problem">A summary of the challenge the agent faced before working with us.</span></div>
-          <div class="case-row"><span class="lbl" data-i18n="cases.lblsolution">Solution</span><span class="val" data-i18n="cases.c2solution">What we built and the strategy behind it.</span></div>
-          <div class="case-row result"><span class="lbl" data-i18n="cases.lblresult">Result</span><span class="val" data-i18n="cases.c2result">The measurable outcome will go here.</span></div>
-        </div>
-      </div>
-      <div class="case-card reveal-scale" style="transition-delay:.25s">
-        <div class="case-img"><span data-i18n="cases.imgph">Project image</span></div>
-        <div class="case-body">
-          <p class="case-tag" data-i18n="cases.c3tag">International Positioning</p>
-          <h4 data-i18n="cases.c3title">Project Title</h4>
-          <div class="case-row"><span class="lbl" data-i18n="cases.lblproblem">Problem</span><span class="val" data-i18n="cases.c3problem">A summary of the challenge the agent faced before working with us.</span></div>
-          <div class="case-row"><span class="lbl" data-i18n="cases.lblsolution">Solution</span><span class="val" data-i18n="cases.c3solution">What we built and the strategy behind it.</span></div>
-          <div class="case-row result"><span class="lbl" data-i18n="cases.lblresult">Result</span><span class="val" data-i18n="cases.c3result">The measurable outcome will go here.</span></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- FINAL CTA -->
 <section class="finalcta-section">
@@ -479,7 +471,7 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 <footer>
   <div class="container">
     <div class="footer-inner">
-      <img src="agent-authority-logo.png" alt="Agent Authority" class="footer-logo" onerror="this.style.display='none'" />
+      <img src="agent-authority-logo-white.png" alt="Agent Authority" class="footer-logo" onerror="this.style.display='none'" />
       <p class="footer-tagline">Authority Isn't Claimed. It's Built.</p>
       <p class="footer-copy">&copy; 2026 Agent Authority. All rights reserved.</p>
     </div>
@@ -599,22 +591,14 @@ heroVideo.addEventListener('loadeddata',()=>{if(heroVideo.readyState>=2)fallback
 heroVideo.addEventListener('error',()=>fallback.style.opacity='1');
 
 (function(){
-  const v=document.getElementById('heroVideo'),hero=document.getElementById('scroll-hero'),pf=document.getElementById('progressFill');
-  if(!v||!hero)return;
-  const mob=matchMedia('(max-width:768px)').matches,red=matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(mob||red){v.autoplay=true;v.loop=true;v.play().catch(()=>{});return;}
-  v.pause();v.currentTime=0;let ready=false;
-  v.addEventListener('loadedmetadata',()=>ready=true);v.load();
-  function upd(){
-    if(!ready||!v.duration)return;
-    const r=hero.getBoundingClientRect(),s=-r.top,sc=hero.offsetHeight-innerHeight;
-    if(s<=0){v.currentTime=0;pf.style.width='0%';return;}
-    if(s>=sc){v.currentTime=v.duration;pf.style.width='100%';return;}
-    const p=s/sc;v.currentTime=p*v.duration;pf.style.width=(p*100)+'%';
-  }
-  let tick=false;
-  addEventListener('scroll',()=>{if(!tick){requestAnimationFrame(()=>{upd();tick=false});tick=true;}},{passive:true});
-  addEventListener('resize',upd);
+  const v=document.getElementById('heroVideo');
+  if(!v)return;
+  v.muted=true;v.loop=true;v.autoplay=true;v.setAttribute('playsinline','');
+  const tryPlay=()=>v.play().catch(()=>{});
+  v.addEventListener('canplay',tryPlay);
+  tryPlay();
+  // Reanudar si el navegador pausa al volver a la pestaña
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)tryPlay();});
 })();
 
 (function(){
