@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- SEO -->
+<title>Agent Authority — Authority Isn't Claimed. It's Built.</title>
+<meta name="description" content="Agent Authority — premium digital authority for FIFA agents, and a network for players seeking representation. Choose your path." />
+<link rel="canonical" href="https://agentauthority.lat/" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#001B41" />
+<link rel="icon" type="image/png" href="agent-authority-logo.png" />
+<link rel="apple-touch-icon" href="agent-authority-logo.png" />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Agent Authority" />
+<meta property="og:url" content="https://agentauthority.lat/" />
+<meta property="og:title" content="Agent Authority — Authority Isn't Claimed. It's Built." />
+<meta property="og:description" content="Premium digital authority for FIFA agents, and a network for players seeking representation." />
+<meta property="og:image" content="https://agentauthority.lat/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="es_ES" />
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Agent Authority" />
+<meta name="twitter:description" content="Premium digital authority for FIFA agents, and a network for players seeking representation." />
+<meta name="twitter:image" content="https://agentauthority.lat/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+:root{
+  --navy:#001B41; --navy-2:#002a5e; --blue:#0057B8; --blue-lt:#1a7fe0;
+  --gold:#C9A84C; --gold-lt:#e6cc7a; --white:#fff; --ease:cubic-bezier(.16,1,.3,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'Inter',sans-serif;background:var(--navy);color:#fff;overflow:hidden;-webkit-font-smoothing:antialiased}
+
+/* ── TOP BAR (logo + lang) ──────────────────────────────────────────────── */
+.entry-top{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:1.5rem 2.5rem;pointer-events:none}
+.entry-logo{height:46px;width:auto;opacity:0;animation:dropIn .9s var(--ease) .2s forwards}
+.lang-toggle{display:flex;align-items:center;border:1px solid rgba(255,255,255,.25);border-radius:30px;overflow:hidden;pointer-events:auto;backdrop-filter:blur(8px);opacity:0;animation:dropIn .9s var(--ease) .35s forwards}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,.6);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;padding:.4rem .8rem;cursor:pointer;transition:background .25s,color .25s}
+.lang-toggle button.active{background:var(--gold);color:var(--navy)}
+@keyframes dropIn{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+
+/* ── SPLIT LAYOUT ───────────────────────────────────────────────────────── */
+.splitter{display:flex;height:100vh;width:100vw}
+.split{
+  position:relative;flex:1;overflow:hidden;cursor:pointer;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:2rem;
+  transition:flex .65s var(--ease);
+  text-decoration:none;color:#fff;
+}
+/* background image layer (user replaces card-*.jpg) */
+.split-bg{
+  position:absolute;inset:0;z-index:0;
+  background-size:cover;background-position:center;
+  transition:transform .9s var(--ease),filter .6s var(--ease);
+  transform:scale(1.04);
+}
+.split-agente .split-bg{
+  background-color:#001B41;
+  background-image:linear-gradient(135deg,rgba(0,13,31,.55),rgba(0,42,94,.55)),url('card-agente.jpg');
+}
+.split-jugadores .split-bg{
+  background-color:#000d1f;
+  background-image:linear-gradient(135deg,rgba(0,13,31,.55),rgba(0,27,65,.55)),url('card-jugadores.jpg');
+}
+/* fallback decorative grid + glow (shows if image missing) */
+.split-grid{position:absolute;inset:0;z-index:0;opacity:.4;background-image:linear-gradient(rgba(201,168,76,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.06) 1px,transparent 1px);background-size:70px 70px}
+.split-glow{position:absolute;border-radius:50%;filter:blur(90px);z-index:0;transition:opacity .6s}
+.split-agente .split-glow{width:520px;height:520px;background:radial-gradient(circle,rgba(0,87,184,.5),transparent 65%);top:-10%;left:-10%}
+.split-jugadores .split-glow{width:520px;height:520px;background:radial-gradient(circle,rgba(201,168,76,.32),transparent 65%);bottom:-12%;right:-10%}
+
+.split-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(0,9,25,.75) 0%,rgba(0,16,38,.35) 55%,rgba(0,16,38,.5) 100%);transition:background .6s}
+.split-content{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:1.1rem;max-width:440px;transform:translateY(10px);opacity:0;animation:riseIn 1s var(--ease) forwards}
+.split-agente .split-content{animation-delay:.5s}
+.split-jugadores .split-content{animation-delay:.65s}
+@keyframes riseIn{to{opacity:1;transform:none}}
+
+.split-icon{width:74px;height:74px;border-radius:50%;border:1px solid rgba(201,168,76,.45);display:flex;align-items:center;justify-content:center;background:rgba(0,16,38,.35);backdrop-filter:blur(6px);transition:transform .5s var(--ease),border-color .5s,box-shadow .5s}
+.split-icon svg{width:34px;height:34px;stroke:var(--gold);fill:none;stroke-width:1.4}
+.split-eyebrow{font-size:.68rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold)}
+.split-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.6vw,3.2rem);font-weight:900;line-height:1.08;text-shadow:0 16px 50px rgba(0,0,0,.5)}
+.split-desc{font-size:.95rem;font-weight:300;color:rgba(255,255,255,.78);line-height:1.6;max-width:340px}
+.split-enter{margin-top:.6rem;display:inline-flex;align-items:center;gap:.6rem;font-size:.78rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#fff;border:1px solid rgba(255,255,255,.4);padding:.8rem 1.8rem;border-radius:3px;overflow:hidden;position:relative;transition:color .35s}
+.split-enter::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg,var(--gold),var(--gold-lt));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);z-index:-1}
+.split-enter .arrow{transition:transform .35s var(--ease)}
+
+/* center divider line */
+.split-divider{position:absolute;top:0;bottom:0;left:50%;width:1px;z-index:10;background:linear-gradient(180deg,transparent,rgba(201,168,76,.6),transparent);transform:translateX(-50%);pointer-events:none}
+.split-divider::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:54px;height:54px;border-radius:50%;background:var(--navy);border:1px solid rgba(201,168,76,.5);display:flex}
+.divider-or{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:11;font-family:'Playfair Display',serif;font-style:italic;font-size:.85rem;color:var(--gold);pointer-events:none}
+
+/* ── HOVER (desktop): expand hovered side ───────────────────────────────── */
+@media(hover:hover) and (min-width:769px){
+  .splitter:hover .split{flex:.8}
+  .splitter:hover .split:hover{flex:1.4}
+  .split:hover .split-bg{transform:scale(1.12)}
+  .split:hover .split-overlay{background:linear-gradient(to top,rgba(0,9,25,.6) 0%,rgba(0,16,38,.15) 60%,rgba(0,16,38,.3) 100%)}
+  .split:hover .split-icon{transform:translateY(-4px) scale(1.06);border-color:var(--gold);box-shadow:0 12px 40px rgba(201,168,76,.3)}
+  .split:hover .split-enter{color:var(--navy)}
+  .split:hover .split-enter::before{transform:scaleX(1)}
+  .split:hover .split-enter .arrow{transform:translateX(4px)}
+}
+
+/* ── MOBILE: stack vertically ───────────────────────────────────────────── */
+@media(max-width:768px){
+  body{overflow-y:auto}
+  .splitter{flex-direction:column;height:auto;min-height:100vh}
+  .split{min-height:50vh;flex:none}
+  .split-divider{top:50%;left:0;right:0;bottom:auto;width:100%;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.6),transparent);transform:translateY(-50%)}
+  .divider-or{background:var(--navy);padding:.2rem .6rem;border-radius:20px;border:1px solid rgba(201,168,76,.4)}
+  .entry-top{padding:1.1rem 1.4rem}
+  .entry-logo{height:38px}
+  .split-enter{color:var(--navy)}
+  .split-enter::before{transform:scaleX(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .split-bg{transform:none}
+  .entry-logo,.lang-toggle,.split-content{animation:none;opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div class="entry-top">
+  <img src="agent-authority-logo-white.png" alt="Agent Authority" class="entry-logo" onerror="this.style.display='none'" />
+  <div class="lang-toggle">
+    <button id="btnES" onclick="setLang('es')">ES</button>
+    <button id="btnEN" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<main class="splitter">
+
+  <!-- AGENTE FIFA -->
+  <a href="index.html" class="split split-agente" aria-label="Agent FIFA">
+    <div class="split-bg"></div>
+    <div class="split-grid"></div>
+    <div class="split-glow"></div>
+    <div class="split-overlay"></div>
+    <div class="split-content">
+      <div class="split-icon">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7h-3V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2H4a1 1 0 00-1 1v11a1 1 0 001 1h16a1 1 0 001-1V8a1 1 0 00-1-1zM9 5h6v2H9V5z"/></svg>
+      </div>
+      <p class="split-eyebrow" data-i18n="agente.eyebrow">For Professionals</p>
+      <h2 class="split-title" data-i18n="agente.title">FIFA Agent</h2>
+      <p class="split-desc" data-i18n="agente.desc">Build the digital authority that players trust, clubs respect and sponsors notice.</p>
+      <span class="split-enter" data-i18n="agente.enter">Enter <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
+
+  <!-- JUGADORES -->
+  <a href="players.html" class="split split-jugadores" aria-label="Players">
+    <div class="split-bg"></div>
+    <div class="split-grid"></div>
+    <div class="split-glow"></div>
+    <div class="split-overlay"></div>
+    <div class="split-content">
+      <div class="split-icon">
+        <svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 6l4-2 1.5 2h5L16 4l4 2-2 4-2-1v9H8v-9l-2 1-2-4z"/></svg>
+      </div>
+      <p class="split-eyebrow" data-i18n="jug.eyebrow">For Players</p>
+      <h2 class="split-title" data-i18n="jug.title">Players</h2>
+      <p class="split-desc" data-i18n="jug.desc">Get your digital card and be discovered by FIFA licensed agents worldwide.</p>
+      <span class="split-enter" data-i18n="jug.enter">Enter <span class="arrow">&rarr;</span></span>
+    </div>
+  </a>
+
+  <div class="split-divider"></div>
+  <span class="divider-or" data-i18n="divider.or">or</span>
+</main>
+
+<script>
+const I18N={
+  en:{
+    'agente.eyebrow':'For Professionals','agente.title':'FIFA Agent',
+    'agente.desc':'Build the digital authority that players trust, clubs respect and sponsors notice.','agente.enter':'Enter <span class="arrow">&rarr;</span>',
+    'jug.eyebrow':'For Players','jug.title':'Players',
+    'jug.desc':'Get your digital card and be discovered by FIFA licensed agents worldwide.','jug.enter':'Enter <span class="arrow">&rarr;</span>',
+    'divider.or':'or'
+  },
+  es:{
+    'agente.eyebrow':'Para Profesionales','agente.title':'Agente FIFA',
+    'agente.desc':'Construí la autoridad digital en la que los jugadores confían, los clubes respetan y los sponsors notan.','agente.enter':'Entrar <span class="arrow">&rarr;</span>',
+    'jug.eyebrow':'Para Jugadores','jug.title':'Jugadores',
+    'jug.desc':'Conseguí tu ficha digital y que te descubran agentes FIFA de todo el mundo.','jug.enter':'Entrar <span class="arrow">&rarr;</span>',
+    'divider.or':'o'
+  }
+};
+function setLang(lang){
+  document.documentElement.lang=lang;
+  const d=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(d[k]!==undefined)el.innerHTML=d[k];});
+  document.getElementById('btnES').classList.toggle('active',lang==='es');
+  document.getElementById('btnEN').classList.toggle('active',lang==='en');
+  try{localStorage.setItem('aa_lang',lang)}catch(e){}
+}
+(function(){
+  let saved=null;try{saved=localStorage.getItem('aa_lang')}catch(e){}
+  const nav=(navigator.language||'en').toLowerCase();
+  setLang(saved||(nav.startsWith('es')?'es':'en'));
+})();
+</script>
+</body>
+</html>
