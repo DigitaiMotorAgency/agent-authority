@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Agent Authority — Authority Isn't Claimed. It's Built.</title>
-<meta name="description" content="We build the digital authority that players, clubs, and sponsors expect when they research a FIFA agent." />
+<meta name="description" content="We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -16,31 +16,25 @@
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Inter',sans-serif;background:var(--navy);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:var(--navy)}
-::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+body{font-family:'Inter',sans-serif;background:var(--white);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--navy)}::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2.5rem;height:74px;
-  display:flex;align-items:center;justify-content:space-between;
-  transition:background .5s var(--ease),box-shadow .5s var(--ease),backdrop-filter .5s}
-nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160%);
-  -webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 rgba(201,168,76,.18)}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:0 2.5rem;height:74px;display:flex;align-items:center;justify-content:space-between;transition:background .5s var(--ease),box-shadow .5s var(--ease),backdrop-filter .5s}
+nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);box-shadow:0 1px 0 rgba(201,168,76,.18)}
 .nav-logo{height:46px;width:auto;object-fit:contain;filter:brightness(0) invert(1);transition:transform .3s}
 .nav-logo:hover{transform:scale(1.04)}
-.nav-links{display:flex;align-items:center;gap:2.4rem;list-style:none}
-.nav-links a{text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.13em;
-  text-transform:uppercase;color:rgba(255,255,255,.72);transition:color .25s;position:relative}
-.nav-links a:not(.nav-cta)::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;
-  background:var(--gold);transition:width .3s var(--ease)}
+.nav-right{display:flex;align-items:center;gap:2rem}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{text-decoration:none;font-size:.76rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.72);transition:color .25s;position:relative}
+.nav-links a:not(.nav-cta)::after{content:'';position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease)}
 .nav-links a:not(.nav-cta):hover::after{width:100%}
 .nav-links a:hover{color:var(--gold)}
-.nav-cta{position:relative;z-index:1;border:1px solid var(--gold);color:var(--gold)!important;
-  padding:.55rem 1.4rem;border-radius:3px;overflow:hidden;transition:color .3s!important}
-.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);
-  transform-origin:left;transition:transform .35s var(--ease);z-index:-1}
-.nav-cta:hover{color:var(--navy)!important}
-.nav-cta:hover::before{transform:scaleX(1)}
+.nav-cta{position:relative;z-index:1;border:1px solid var(--gold);color:var(--gold)!important;padding:.55rem 1.3rem;border-radius:3px;overflow:hidden;transition:color .3s!important}
+.nav-cta::before{content:'';position:absolute;inset:0;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .35s var(--ease);z-index:-1}
+.nav-cta:hover{color:var(--navy)!important}.nav-cta:hover::before{transform:scaleX(1)}
+.lang-toggle{display:flex;align-items:center;border:1px solid rgba(255,255,255,.25);border-radius:30px;overflow:hidden}
+.lang-toggle button{background:none;border:none;color:rgba(255,255,255,.6);font-family:'Inter',sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.1em;padding:.4rem .8rem;cursor:pointer;transition:background .25s,color .25s}
+.lang-toggle button.active{background:var(--gold);color:var(--navy)}
 .nav-burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
 .nav-burger span{display:block;width:26px;height:1.6px;background:#fff;transition:.3s}
 
@@ -55,20 +49,20 @@ nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160
 @keyframes blobMove{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(8%,12%) scale(1.12)}66%{transform:translate(-6%,-8%) scale(.92)}}
 .grid-overlay{position:absolute;inset:0;z-index:0;opacity:.5;background-image:linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);background-size:90px 90px}
 #particles{position:absolute;inset:0;z-index:1;pointer-events:none}
-.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,16,38,.25) 0%,rgba(0,16,38,.55) 55%,rgba(0,16,38,.9) 100%)}
+.hero-overlay{position:absolute;inset:0;z-index:2;background:linear-gradient(to bottom,rgba(0,16,38,.3) 0%,rgba(0,16,38,.55) 55%,rgba(0,16,38,.9) 100%)}
 .hero-content{position:absolute;inset:0;z-index:3;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2rem;transform-style:preserve-3d}
-.hero-3d{transform-style:preserve-3d;transition:transform .15s ease-out;display:flex;flex-direction:column;align-items:center}
-.hero-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);margin-bottom:1.6rem;padding:.5rem 1.3rem;border:1px solid rgba(201,168,76,.3);border-radius:40px;background:rgba(201,168,76,.06);backdrop-filter:blur(6px);transform:translateZ(60px);opacity:0;animation:fadeIn .8s var(--ease) .3s forwards}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,7.5vw,6.2rem);font-weight:900;color:#fff;line-height:1.04;max-width:920px;margin-bottom:1.6rem;transform:translateZ(90px);opacity:0;animation:fadeIn .9s var(--ease) .5s forwards;text-shadow:0 20px 60px rgba(0,0,0,.4)}
-.hero-title em{font-style:italic;background:linear-gradient(120deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-sub{font-size:clamp(1rem,2vw,1.22rem);font-weight:300;color:rgba(255,255,255,.82);max-width:640px;line-height:1.7;margin-bottom:2.6rem;transform:translateZ(50px);opacity:0;animation:fadeIn .9s var(--ease) .7s forwards}
+.hero-3d{transform-style:preserve-3d;transition:transform .15s ease-out;display:flex;flex-direction:column;align-items:center;max-width:1000px}
+.hero-logo{height:64px;margin-bottom:1.6rem;filter:brightness(0) invert(1);transform:translateZ(80px);opacity:0;animation:fadeIn .8s var(--ease) .2s forwards}
+.hero-eyebrow{font-family:'Playfair Display',serif;font-style:italic;font-size:.95rem;letter-spacing:.15em;color:var(--gold);margin-bottom:1.4rem;transform:translateZ(60px);opacity:0;animation:fadeIn .8s var(--ease) .35s forwards}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.6vw,3.7rem);font-weight:900;color:#fff;line-height:1.12;max-width:920px;margin-bottom:1.5rem;transform:translateZ(90px);opacity:0;animation:fadeIn .9s var(--ease) .5s forwards;text-shadow:0 20px 60px rgba(0,0,0,.4)}
+.hero-title .hl{background:linear-gradient(120deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:clamp(.98rem,1.6vw,1.15rem);font-weight:300;color:rgba(255,255,255,.82);max-width:680px;line-height:1.7;margin-bottom:2.4rem;transform:translateZ(50px);opacity:0;animation:fadeIn .9s var(--ease) .7s forwards}
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;transform:translateZ(40px);opacity:0;animation:fadeIn .9s var(--ease) .9s forwards}
 @keyframes fadeIn{to{opacity:1}}
-.btn-gold{position:relative;background:linear-gradient(120deg,var(--gold),var(--gold-lt));color:var(--navy);font-weight:700;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.3rem;border:none;border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 30px rgba(201,168,76,.28)}
+.btn-gold{position:relative;background:linear-gradient(120deg,var(--gold),var(--gold-lt));color:var(--navy);font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:1rem 2.1rem;border:none;border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;overflow:hidden;transition:transform .25s,box-shadow .25s;box-shadow:0 8px 30px rgba(201,168,76,.28)}
 .btn-gold::after{content:'';position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);transition:left .6s}
-.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(201,168,76,.45)}
-.btn-gold:hover::after{left:140%}
-.btn-outline-white{background:rgba(255,255,255,.04);color:#fff;font-weight:500;font-size:.85rem;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.3rem;border:1px solid rgba(255,255,255,.35);border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
+.btn-gold:hover{transform:translateY(-3px);box-shadow:0 14px 44px rgba(201,168,76,.45)}.btn-gold:hover::after{left:140%}
+.btn-outline-white{background:rgba(255,255,255,.04);color:#fff;font-weight:500;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;padding:1rem 2.1rem;border:1px solid rgba(255,255,255,.35);border-radius:3px;cursor:pointer;text-decoration:none;display:inline-block;backdrop-filter:blur(8px);transition:border-color .25s,background .25s}
 .btn-outline-white:hover{border-color:#fff;background:rgba(255,255,255,.1)}
 .scroll-progress-bar{position:absolute;bottom:0;left:0;width:100%;height:2px;background:rgba(255,255,255,.1);z-index:5}
 .scroll-progress-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--blue),var(--gold));transition:width .05s linear}
@@ -82,151 +76,143 @@ nav.scrolled{background:rgba(0,16,38,.7);backdrop-filter:blur(20px) saturate(160
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.1rem);font-weight:700;line-height:1.13}
 .gold-rule{width:52px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin:1.5rem 0}
 .reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:0;transition:opacity .85s var(--ease),transform .85s var(--ease)}
-.reveal{transform:translateY(45px)}
-.reveal-left{transform:translateX(-50px)}
-.reveal-right{transform:translateX(50px)}
-.reveal-scale{transform:scale(.9)}
+.reveal{transform:translateY(45px)}.reveal-left{transform:translateX(-50px)}.reveal-right{transform:translateX(50px)}.reveal-scale{transform:scale(.9)}
 .visible{opacity:1!important;transform:none!important}
 
 .problem-section{background:var(--off);padding:9rem 0;position:relative;overflow:hidden}
 .problem-inner{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center}
 .problem-text .section-title{color:var(--navy)}
-.problem-text p{font-size:1.1rem;line-height:1.8;color:var(--slate);margin-top:1.4rem}
+.problem-text p{font-size:1.06rem;line-height:1.8;color:var(--slate);margin-top:1.3rem}
 .problem-text p strong{color:var(--navy);font-weight:600}
-.problem-stats{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.stat-card{position:relative;background:rgba(255,255,255,.75);backdrop-filter:blur(12px);border:1px solid rgba(0,87,184,.12);border-top:3px solid var(--gold);padding:2.1rem 1.6rem;border-radius:6px;transition:box-shadow .4s,transform .4s;overflow:hidden}
-.stat-card::before{content:'';position:absolute;top:0;right:0;width:80px;height:80px;background:radial-gradient(circle at top right,rgba(201,168,76,.18),transparent 70%)}
-.stat-card:hover{box-shadow:0 18px 50px rgba(0,27,65,.14);transform:translateY(-5px)}
-.stat-number{font-family:'Playfair Display',serif;font-size:2.7rem;font-weight:900;color:var(--navy);line-height:1}
-.stat-number .suffix{color:var(--gold)}
-.stat-label{font-size:.8rem;color:var(--slate);margin-top:.5rem;line-height:1.4;font-weight:500}
+.problem-points{display:flex;flex-direction:column;gap:1.2rem}
+.ppoint{display:flex;gap:1rem;align-items:flex-start;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);border:1px solid rgba(0,87,184,.1);border-left:3px solid var(--gold);padding:1.4rem 1.6rem;border-radius:6px;transition:transform .35s,box-shadow .35s}
+.ppoint:hover{transform:translateX(6px);box-shadow:0 14px 40px rgba(0,27,65,.1)}
+.ppoint-icon{width:34px;height:34px;flex-shrink:0;border-radius:7px;background:linear-gradient(135deg,var(--blue),var(--navy-2));display:flex;align-items:center;justify-content:center}
+.ppoint-icon svg{width:17px;height:17px;stroke:var(--gold);fill:none;stroke-width:1.7}
+.ppoint p{margin:0;font-size:.92rem;line-height:1.5;color:var(--navy);font-weight:500}
 
-.packs-section{position:relative;padding:9rem 0;overflow:hidden;background:linear-gradient(180deg,var(--navy) 0%,#000d1f 100%)}
-.packs-bg-blob{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(0,87,184,.35),transparent 70%);top:10%;right:-10%;z-index:0;animation:blobMove 24s ease-in-out infinite}
-.packs-section .container{position:relative;z-index:1}
+.whynow-section{position:relative;padding:9rem 0;overflow:hidden;background:linear-gradient(180deg,var(--navy),#000d1f)}
+.whynow-blob{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(0,87,184,.3),transparent 70%);top:5%;left:-12%;z-index:0;animation:blobMove 24s ease-in-out infinite}
+.whynow-section .container{position:relative;z-index:1}
+.whynow-header{text-align:center;margin-bottom:4rem}
+.whynow-header .section-title{color:#fff}.whynow-header .gold-rule{margin:1.5rem auto}
+.whynow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-bottom:3rem}
+.wn-card{position:relative;background:rgba(255,255,255,.05);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2.2rem 1.7rem;text-align:center;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;overflow:hidden}
+.wn-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,.5),transparent)}
+.wn-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,.35);box-shadow:0 24px 60px rgba(0,0,0,.4)}
+.wn-icon{width:60px;height:60px;margin:0 auto 1.3rem;border-radius:50%;background:linear-gradient(135deg,rgba(0,87,184,.3),rgba(201,168,76,.15));border:1px solid rgba(201,168,76,.3);display:flex;align-items:center;justify-content:center}
+.wn-icon svg{width:28px;height:28px;stroke:var(--gold);fill:none;stroke-width:1.5}
+.wn-card h4{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:#fff;margin-bottom:.6rem}
+.wn-card p{font-size:.83rem;color:rgba(255,255,255,.6);line-height:1.6}
+.whynow-foot{text-align:center;font-family:'Playfair Display',serif;font-style:italic;font-size:1.25rem;color:var(--gold);max-width:680px;margin:0 auto;line-height:1.6}
+
+.packs-section{position:relative;padding:9rem 0;overflow:hidden;background:var(--off)}
 .packs-header{text-align:center;margin-bottom:4rem}
-.packs-header .section-title{color:#fff}
-.packs-header .gold-rule{margin:1.5rem auto}
-.packs-header p{color:rgba(255,255,255,.6);font-size:1.05rem;max-width:580px;margin:0 auto;line-height:1.7}
-.packs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-bottom:3rem}
-.pack-card{position:relative;background:rgba(255,255,255,.05);backdrop-filter:blur(16px) saturate(140%);-webkit-backdrop-filter:blur(16px) saturate(140%);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2.4rem 1.9rem;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;overflow:hidden}
-.pack-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent)}
-.pack-card::after{content:'';position:absolute;inset:0;border-radius:14px;opacity:0;transition:opacity .4s;background:radial-gradient(400px circle at var(--mx,50%) var(--my,0%),rgba(201,168,76,.14),transparent 60%)}
-.pack-card:hover{transform:translateY(-8px);border-color:rgba(201,168,76,.35);box-shadow:0 24px 60px rgba(0,0,0,.4)}
-.pack-card:hover::after{opacity:1}
-.pack-tier{font-size:.64rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
-.pack-name{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.pack-price{font-size:1.35rem;font-weight:700;color:var(--gold);margin-bottom:1.4rem}
-.pack-price span{font-size:.82rem;font-weight:400;color:rgba(255,255,255,.4)}
-.pack-divider{height:1px;background:rgba(255,255,255,.1);margin-bottom:1.4rem}
-.pack-items{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:1.8rem}
-.pack-items li{font-size:.84rem;color:rgba(255,255,255,.72);display:flex;align-items:flex-start;gap:.55rem;line-height:1.4}
-.pack-items li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--gold);flex-shrink:0;margin-top:7px}
-.pack-result{background:rgba(201,168,76,.08);border-left:2px solid var(--gold);padding:.75rem 1rem;font-size:.79rem;font-style:italic;color:rgba(255,255,255,.62);line-height:1.5;border-radius:0 4px 4px 0}
-.signature-offer{position:relative;background:linear-gradient(135deg,rgba(201,168,76,.14),rgba(201,168,76,.04));backdrop-filter:blur(20px);border:1.5px solid rgba(201,168,76,.5);border-radius:18px;padding:3rem;display:grid;grid-template-columns:1fr auto;gap:2.5rem;align-items:center;overflow:hidden}
-.signature-offer::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;filter:blur(80px);background:radial-gradient(circle,rgba(201,168,76,.2),transparent 70%);top:-40%;left:30%}
-.sig-content{position:relative;z-index:1}
-.sig-eyebrow{font-size:.64rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:.7rem}
-.sig-title{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.sig-desc{color:rgba(255,255,255,.62);font-size:.95rem;line-height:1.6;max-width:580px}
-.sig-items{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.5rem}
-.sig-item{background:rgba(255,255,255,.08);border:1px solid rgba(201,168,76,.25);padding:.35rem .85rem;border-radius:30px;font-size:.74rem;color:rgba(255,255,255,.75)}
-.sig-price-block{position:relative;z-index:1;text-align:center;flex-shrink:0}
-.sig-price{font-family:'Playfair Display',serif;font-size:3.2rem;font-weight:900;background:linear-gradient(120deg,var(--gold),var(--gold-lt));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
-.sig-price-note{font-size:.74rem;color:rgba(255,255,255,.4);margin:.3rem 0 1.5rem}
+.packs-header .section-title{color:var(--navy)}.packs-header .gold-rule{margin:1.5rem auto}
+.packs-header p{color:var(--slate);font-size:1.05rem;max-width:580px;margin:0 auto;line-height:1.7}
+.packs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem;align-items:start}
+.pack-card{position:relative;background:#fff;border:1px solid var(--mist);border-radius:16px;padding:2.6rem 2.1rem;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;overflow:hidden}
+.pack-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--blue),var(--gold))}
+.pack-card:hover{transform:translateY(-8px);box-shadow:0 28px 70px rgba(0,27,65,.16);border-color:rgba(201,168,76,.4)}
+.pack-card.featured{border:1.5px solid var(--gold);box-shadow:0 20px 60px rgba(201,168,76,.18)}
+.pack-badge{position:absolute;top:1.4rem;right:1.4rem;background:var(--gold);color:var(--navy);font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:.3rem .8rem;border-radius:20px}
+.pack-tier{font-size:.66rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:.7rem}
+.pack-name{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:700;color:var(--navy);margin-bottom:.7rem}
+.pack-price{font-size:2.2rem;font-weight:800;color:var(--navy);margin-bottom:.3rem;font-family:'Playfair Display',serif}
+.pack-price span{font-size:.95rem;font-weight:400;color:var(--slate)}
+.pack-divider{height:1px;background:var(--mist);margin:1.5rem 0}
+.pack-items{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-bottom:2rem}
+.pack-items li{font-size:.9rem;color:var(--slate);display:flex;align-items:flex-start;gap:.6rem;line-height:1.45}
+.pack-items li svg{width:16px;height:16px;stroke:var(--gold);fill:none;stroke-width:2.4;flex-shrink:0;margin-top:3px}
+.pack-card .btn-pack{display:block;text-align:center;text-decoration:none;background:var(--navy);color:#fff;font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:.95rem;border-radius:3px;transition:background .25s,transform .25s}
+.pack-card .btn-pack:hover{background:var(--blue);transform:translateY(-2px)}
+.pack-card.featured .btn-pack{background:linear-gradient(120deg,var(--gold),var(--gold-lt));color:var(--navy)}
 
-.process-section{background:var(--off);padding:9rem 0;position:relative}
+.process-section{background:#fff;padding:9rem 0;position:relative;overflow:hidden}
 .process-header{text-align:center;margin-bottom:5rem}
-.process-header .section-title{color:var(--navy)}
-.process-header .gold-rule{margin:1.5rem auto}
-.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:0;position:relative}
-.process-steps::before{content:'';position:absolute;top:70px;left:calc(16.66% + 1rem);right:calc(16.66% + 1rem);height:2px;background:linear-gradient(90deg,var(--gold),rgba(201,168,76,.2),var(--gold));z-index:0}
-.process-step{text-align:center;padding:0 2rem;position:relative;z-index:1}
-.step-icon{width:140px;height:140px;margin:0 auto 1.4rem;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 14px 40px rgba(0,27,65,.12);border:2px solid var(--gold);position:relative;overflow:hidden}
-.step-icon svg{width:62px;height:62px;stroke:var(--navy);fill:none;stroke-width:1.5;overflow:visible}
-.step-num{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.2em;color:var(--gold);margin-bottom:.6rem}
-.step-title{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:1rem}
-.step-desc{font-size:.9rem;line-height:1.7;color:var(--slate)}
-/* animated icon paths */
-.step-icon.go .draw{stroke-dasharray:var(--len);stroke-dashoffset:var(--len);animation:draw 1.6s var(--ease) forwards}
-.step-icon.go .draw.d2{animation-delay:.3s}
-.step-icon.go .draw.d3{animation-delay:.6s}
-@keyframes draw{to{stroke-dashoffset:0}}
-.step-icon.go .pulse{animation:pulseDot 1.8s ease-in-out infinite}
-@keyframes pulseDot{0%,100%{opacity:.3;transform:scale(.9)}50%{opacity:1;transform:scale(1.1)}}
-.step-icon .pulse{transform-origin:center;transform-box:fill-box}
-.step-icon.go .spin{animation:spinSlow 8s linear infinite;transform-origin:center;transform-box:fill-box}
-@keyframes spinSlow{to{transform:rotate(360deg)}}
+.process-header .section-title{color:var(--navy)}.process-header .gold-rule{margin:1.5rem auto}
+.timeline{position:relative;max-width:760px;margin:0 auto}
+.timeline::before{content:'';position:absolute;left:31px;top:10px;bottom:10px;width:2px;background:linear-gradient(180deg,var(--blue),var(--gold))}
+.tl-step{position:relative;padding-left:90px;padding-bottom:3rem}
+.tl-step:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:0;top:0;width:64px;height:64px;border-radius:50%;background:var(--navy);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--gold);z-index:1}
+.tl-step h4{font-family:'Playfair Display',serif;font-size:1.35rem;font-weight:700;color:var(--navy);margin-bottom:.5rem;padding-top:.6rem}
+.tl-step p{font-size:.93rem;color:var(--slate);line-height:1.7}
 
-.why-section{position:relative;padding:9rem 0;overflow:hidden;background:linear-gradient(180deg,#000d1f,var(--navy))}
-.why-bg-blob{position:absolute;width:520px;height:520px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(201,168,76,.16),transparent 70%);bottom:-10%;left:-8%;z-index:0;animation:blobMove 28s ease-in-out infinite}
-.why-section .container{position:relative;z-index:1}
-.why-inner{display:grid;grid-template-columns:1fr 1.2fr;gap:5rem;align-items:center}
-.why-text .section-title{color:#fff}
-.why-text p{color:rgba(255,255,255,.62);font-size:1.05rem;line-height:1.8;margin-top:1.4rem}
-.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem}
-.why-card{background:rgba(255,255,255,.05);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2rem;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
-.why-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.35);border-color:rgba(201,168,76,.3)}
-.why-icon{width:46px;height:46px;background:linear-gradient(135deg,var(--blue),var(--navy-2));border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem;box-shadow:0 8px 20px rgba(0,87,184,.3)}
-.why-icon svg{width:22px;height:22px;stroke:var(--gold);fill:none}
-.why-card h4{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:#fff;margin-bottom:.5rem}
-.why-card p{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.6}
+.cases-section{position:relative;padding:9rem 0;overflow:hidden;background:linear-gradient(180deg,#000d1f,var(--navy))}
+.cases-blob{position:absolute;width:540px;height:540px;border-radius:50%;filter:blur(90px);background:radial-gradient(circle,rgba(201,168,76,.14),transparent 70%);bottom:-8%;right:-10%;z-index:0;animation:blobMove 28s ease-in-out infinite}
+.cases-section .container{position:relative;z-index:1}
+.cases-header{text-align:center;margin-bottom:1rem}
+.cases-header .section-title{color:#fff}.cases-header .gold-rule{margin:1.5rem auto}
+.cases-note{text-align:center;color:rgba(255,255,255,.4);font-size:.85rem;font-style:italic;margin-bottom:3.5rem}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.case-card{background:rgba(255,255,255,.05);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;transition:transform .4s var(--ease),box-shadow .4s,border-color .4s}
+.case-card:hover{transform:translateY(-8px);box-shadow:0 24px 60px rgba(0,0,0,.4);border-color:rgba(201,168,76,.3)}
+.case-img{height:180px;background:linear-gradient(135deg,var(--blue),var(--navy-2));position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.case-img::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);background-size:30px 30px}
+.case-img span{position:relative;font-family:'Playfair Display',serif;font-style:italic;color:rgba(255,255,255,.5);font-size:.85rem;z-index:1}
+.case-body{padding:1.8rem}
+.case-tag{font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:.8rem}
+.case-body h4{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:1rem}
+.case-row{margin-bottom:.8rem}
+.case-row .lbl{font-size:.66rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);display:block;margin-bottom:.2rem}
+.case-row .val{font-size:.85rem;color:rgba(255,255,255,.72);line-height:1.5}
+.case-row.result .val{color:var(--gold);font-weight:600}
 
-.contact-section{position:relative;padding:9rem 0;overflow:hidden;background:var(--navy)}
-.contact-bg-blob{position:absolute;width:560px;height:560px;border-radius:50%;filter:blur(100px);background:radial-gradient(circle,rgba(0,87,184,.3),transparent 70%);top:0;right:-12%;z-index:0;animation:blobMove 26s ease-in-out infinite}
-.contact-section .container{position:relative;z-index:1}
+.finalcta-section{position:relative;padding:9rem 0;overflow:hidden;background:var(--navy);text-align:center}
+.finalcta-blob{position:absolute;width:600px;height:600px;border-radius:50%;filter:blur(100px);background:radial-gradient(circle,rgba(0,87,184,.3),transparent 70%);top:-20%;left:50%;transform:translateX(-50%);z-index:0;animation:blobMove 26s ease-in-out infinite}
+.finalcta-section .container{position:relative;z-index:1}
+.finalcta-section .section-title{color:#fff;max-width:760px;margin:0 auto}
+.finalcta-section p{color:rgba(255,255,255,.65);font-size:1.1rem;line-height:1.8;max-width:620px;margin:1.6rem auto 2.6rem}
+.finalcta-actions{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+.contact-section{position:relative;padding:9rem 0;overflow:hidden;background:var(--off)}
 .contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
-.contact-text .section-title{color:#fff}
-.contact-text p{color:rgba(255,255,255,.62);font-size:1.05rem;line-height:1.8;margin-top:1.4rem}
-.contact-details{margin-top:2.4rem;display:flex;flex-direction:column;gap:1rem}
-.contact-item{display:flex;align-items:center;gap:1rem;font-size:.9rem;color:rgba(255,255,255,.72)}
-.contact-item-icon{width:38px;height:38px;border:1px solid rgba(201,168,76,.3);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:rgba(201,168,76,.05)}
-.contact-item-icon svg{width:17px;height:17px;stroke:var(--gold);fill:none}
-.contact-form{background:rgba(255,255,255,.05);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;gap:1.2rem}
+.contact-text .section-title{color:var(--navy)}
+.contact-text p{color:var(--slate);font-size:1.05rem;line-height:1.8;margin-top:1.3rem}
+.contact-details{margin-top:2.2rem;display:flex;flex-direction:column;gap:1rem}
+.contact-item{display:flex;align-items:center;gap:1rem;font-size:.9rem;color:var(--navy)}
+.contact-item-icon{width:38px;height:38px;border:1px solid rgba(0,87,184,.25);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;background:#fff}
+.contact-item-icon svg{width:17px;height:17px;stroke:var(--blue);fill:none}
+.contact-form{background:#fff;border:1px solid var(--mist);border-radius:18px;padding:2.5rem;display:flex;flex-direction:column;gap:1.2rem;box-shadow:0 20px 60px rgba(0,27,65,.08)}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 .form-group{display:flex;flex-direction:column;gap:.4rem}
-.form-group label{font-size:.68rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45)}
-.form-group input,.form-group select,.form-group textarea{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:8px;padding:.85rem 1rem;color:#fff;font-size:.9rem;font-family:'Inter',sans-serif;transition:border-color .25s,background .25s;outline:none;width:100%}
-.form-group input::placeholder,.form-group textarea::placeholder{color:rgba(255,255,255,.28)}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:rgba(255,255,255,.08)}
-.form-group select option{background:var(--navy)}
+.form-group label{font-size:.68rem;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--slate)}
+.form-group input,.form-group select,.form-group textarea{background:var(--off);border:1px solid var(--mist);border-radius:8px;padding:.85rem 1rem;color:var(--ink);font-size:.9rem;font-family:'Inter',sans-serif;transition:border-color .25s,background .25s;outline:none;width:100%}
+.form-group input::placeholder,.form-group textarea::placeholder{color:#a8b2c4}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold);background:#fff}
 .form-group textarea{resize:vertical;min-height:110px}
 
 footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,.15)}
 .footer-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .footer-logo{height:38px;filter:brightness(0) invert(1);opacity:.7}
-.footer-copy{font-size:.78rem;color:rgba(255,255,255,.3);letter-spacing:.05em}
 .footer-tagline{font-family:'Playfair Display',serif;font-size:.85rem;font-style:italic;color:var(--gold);opacity:.75}
+.footer-copy{font-size:.78rem;color:rgba(255,255,255,.3);letter-spacing:.05em}
 
-.nav-mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,16,38,.98);backdrop-filter:blur(20px);z-index:1100;flex-direction:column;align-items:center;justify-content:center;gap:2.4rem}
+.nav-mobile-overlay{display:none;position:fixed;inset:0;background:rgba(0,16,38,.98);backdrop-filter:blur(20px);z-index:1100;flex-direction:column;align-items:center;justify-content:center;gap:2.2rem}
 .nav-mobile-overlay.open{display:flex}
-.nav-mobile-overlay a{font-family:'Playfair Display',serif;font-size:1.7rem;color:#fff;text-decoration:none;transition:color .2s}
+.nav-mobile-overlay a{font-family:'Playfair Display',serif;font-size:1.6rem;color:#fff;text-decoration:none;transition:color .2s}
 .nav-mobile-overlay a:hover{color:var(--gold)}
 .nav-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;color:#fff;cursor:pointer;background:none;border:none}
 
+@media(max-width:880px){
+  .whynow-grid{grid-template-columns:1fr 1fr}
+  .packs-grid{grid-template-columns:1fr}
+  .cases-grid{grid-template-columns:1fr}
+}
 @media(max-width:768px){
   nav{padding:0 1.4rem}
-  .scroll-video-hero{height:100vh}
-  .scroll-video-sticky{position:relative;height:100vh;perspective:none}
-  .nav-links{display:none}
-  .nav-burger{display:flex}
-  .hero-3d{transform:none!important}
-  .problem-inner,.why-inner,.contact-inner{grid-template-columns:1fr;gap:3rem}
-  .problem-stats{grid-template-columns:1fr 1fr}
-  .packs-grid{grid-template-columns:1fr}
-  .process-steps{grid-template-columns:1fr;gap:3rem}
-  .process-steps::before{display:none}
-  .why-grid{grid-template-columns:1fr}
-  .signature-offer{grid-template-columns:1fr;text-align:center;padding:2rem}
-  .sig-price-block{order:-1}
-  .sig-items{justify-content:center}
+  .scroll-video-hero{height:100vh}.scroll-video-sticky{position:relative;height:100vh;perspective:none}
+  .nav-links{display:none}.nav-burger{display:flex}
+  .hero-3d{transform:none!important}.hero-logo{height:48px}
+  .problem-inner,.contact-inner{grid-template-columns:1fr;gap:3rem}
+  .whynow-grid{grid-template-columns:1fr}
   .form-row{grid-template-columns:1fr}
   .footer-inner{flex-direction:column;text-align:center}
-  .hero-title{font-size:2.5rem}
 }
 @media(prefers-reduced-motion:reduce){
   .scroll-video-hero{height:100vh}
-  .blob,.packs-bg-blob,.why-bg-blob,.contact-bg-blob{animation:none}
+  .blob,.whynow-blob,.cases-blob,.finalcta-blob{animation:none}
   .reveal,.reveal-left,.reveal-right,.reveal-scale{opacity:1;transform:none}
 }
 </style>
@@ -236,187 +222,237 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 <nav id="mainNav">
   <img src="agent-authority-logo.png" alt="Agent Authority" class="nav-logo" onerror="this.style.display='none';this.nextElementSibling.style.display='block';" />
   <span style="display:none;font-family:'Playfair Display',serif;font-weight:700;color:#fff;font-size:1.1rem;letter-spacing:.1em">AGENT AUTHORITY</span>
-  <ul class="nav-links">
-    <li><a href="#problem">The Problem</a></li>
-    <li><a href="#packs">Services</a></li>
-    <li><a href="#process">Process</a></li>
-    <li><a href="#why">Why Us</a></li>
-    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
-  </ul>
+  <div class="nav-right">
+    <ul class="nav-links">
+      <li><a href="#problem" data-i18n="nav.problem">The Problem</a></li>
+      <li><a href="#whynow" data-i18n="nav.why">Why Now</a></li>
+      <li><a href="#packs" data-i18n="nav.packages">Packages</a></li>
+      <li><a href="#process" data-i18n="nav.process">Process</a></li>
+      <li><a href="#contact" class="nav-cta" data-i18n="nav.cta">Book a Call</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button id="btnES" onclick="setLang('es')">ES</button>
+      <button id="btnEN" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
   <div class="nav-burger" onclick="document.getElementById('mobileNav').classList.add('open')"><span></span><span></span><span></span></div>
 </nav>
 
 <div class="nav-mobile-overlay" id="mobileNav">
   <button class="nav-close" onclick="document.getElementById('mobileNav').classList.remove('open')">&#10005;</button>
-  <a href="#problem" onclick="document.getElementById('mobileNav').classList.remove('open')">The Problem</a>
-  <a href="#packs" onclick="document.getElementById('mobileNav').classList.remove('open')">Services</a>
-  <a href="#process" onclick="document.getElementById('mobileNav').classList.remove('open')">Process</a>
-  <a href="#why" onclick="document.getElementById('mobileNav').classList.remove('open')">Why Us</a>
-  <a href="#contact" onclick="document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold)">Book a Call</a>
+  <a href="#problem" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.problem">The Problem</a>
+  <a href="#whynow" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.why">Why Now</a>
+  <a href="#packs" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.packages">Packages</a>
+  <a href="#process" onclick="document.getElementById('mobileNav').classList.remove('open')" data-i18n="nav.process">Process</a>
+  <a href="#contact" onclick="document.getElementById('mobileNav').classList.remove('open')" style="color:var(--gold)" data-i18n="nav.cta">Book a Call</a>
 </div>
 
+<!-- HERO -->
 <section class="scroll-video-hero" id="scroll-hero">
   <div class="scroll-video-sticky">
-    <!-- VIDEO: download from pexels.com/videos or mixkit.co (search "business meeting luxury","executive handshake","contract signing"); save as hero.mp4 here -->
     <video id="heroVideo" src="hero.mp4" poster="hero-poster.jpg" playsinline muted preload="auto"></video>
     <div class="video-fallback" id="videoFallback">
-      <div class="grid-overlay"></div>
-      <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
+      <div class="grid-overlay"></div><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
     </div>
     <canvas id="particles"></canvas>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <div class="hero-3d" id="hero3d">
-        <p class="hero-eyebrow">FIFA Licensed Agents &middot; Digital Authority</p>
-        <h1 class="hero-title">Authority Isn't<br><em>Claimed.</em><br>It's Built.</h1>
-        <p class="hero-sub">We build the digital authority that players, clubs, and sponsors expect when they research a FIFA agent.</p>
+        <img src="agent-authority-logo.png" alt="Agent Authority" class="hero-logo" onerror="this.style.display='none'" />
+        <p class="hero-eyebrow" data-i18n="hero.eyebrow">Authority Isn't Claimed. It's Built.</p>
+        <h1 class="hero-title" data-i18n="hero.title">Build a Football Agency Players <span class="hl">Trust.</span> Clubs <span class="hl">Respect.</span> Sponsors <span class="hl">Notice.</span></h1>
+        <p class="hero-sub" data-i18n="hero.sub">We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders through premium branding, web infrastructure and strategic visibility.</p>
         <div class="hero-actions">
-          <a href="#contact" class="btn-gold">Book a Strategy Call</a>
-          <a href="#packs" class="btn-outline-white">View Services</a>
+          <a href="#contact" class="btn-gold" data-i18n="hero.cta1">Book a Private Strategy Call</a>
+          <a href="#contact" class="btn-outline-white" data-i18n="hero.cta2">Request a Digital Authority Audit</a>
         </div>
       </div>
     </div>
-    <div class="scroll-hint"><span>Scroll</span><div class="scroll-arrow"></div></div>
+    <div class="scroll-hint"><span data-i18n="hero.scroll">Scroll</span><div class="scroll-arrow"></div></div>
     <div class="scroll-progress-bar"><div class="scroll-progress-fill" id="progressFill"></div></div>
   </div>
 </section>
 
+<!-- PROBLEM -->
 <section class="problem-section" id="problem">
   <div class="container">
     <div class="problem-inner">
       <div class="problem-text reveal-left">
-        <p class="section-eyebrow">The Reality</p>
-        <h2 class="section-title">Every time someone<br>Googles you &mdash;<br>what do they find?</h2>
+        <p class="section-eyebrow" data-i18n="problem.eyebrow">The Reality</p>
+        <h2 class="section-title" data-i18n="problem.title">Most Football Agents Are Invisible Online</h2>
         <div class="gold-rule"></div>
-        <p>A player's team is evaluating agents. A club's sporting director is comparing representation options. A sponsor is vetting who moves their investment.</p>
-        <p style="margin-top:1rem"><strong>They all do the same thing first: they search your name.</strong> If what they find doesn't match the level of agent you are, the opportunity goes to someone else.</p>
-        <p style="margin-top:1rem">Your track record deserves a digital presence that reflects it. That's exactly what we build.</p>
+        <p data-i18n="problem.lead">Without a professional digital presence, opportunities are lost before conversations even begin.</p>
       </div>
-      <div class="problem-stats reveal-right">
-        <div class="stat-card"><div class="stat-number" data-target="87" data-suffix="%">0</div><div class="stat-label">of decision-makers research agents online before first contact</div></div>
-        <div class="stat-card"><div class="stat-number" data-target="7" data-suffix="s">0</div><div class="stat-label">to form a first impression of your digital presence</div></div>
-        <div class="stat-card"><div class="stat-number" data-target="94" data-suffix="%">0</div><div class="stat-label">of FIFA agents have no professional online presence</div></div>
-        <div class="stat-card"><div class="stat-number" data-target="3" data-suffix="&times;">0</div><div class="stat-label">more likely to close deals with a credible digital profile</div></div>
+      <div class="problem-points reveal-right">
+        <div class="ppoint"><div class="ppoint-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><p data-i18n="problem.p1">Players search online before signing.</p></div>
+        <div class="ppoint"><div class="ppoint-icon"><svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg></div><p data-i18n="problem.p2">Clubs evaluate credibility before engaging.</p></div>
+        <div class="ppoint"><div class="ppoint-icon"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v6h-6"/></svg></div><p data-i18n="problem.p3">Sponsors invest in visibility and reputation.</p></div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- WHY NOW -->
+<section class="whynow-section" id="whynow">
+  <div class="whynow-blob"></div>
+  <div class="container">
+    <div class="whynow-header reveal">
+      <p class="section-eyebrow" data-i18n="why.eyebrow">The Shift</p>
+      <h2 class="section-title" data-i18n="why.title">Why Digital Authority Matters More Than Ever</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <div class="whynow-grid">
+      <div class="wn-card reveal-scale" style="transition-delay:.05s"><div class="wn-icon"><svg viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.4 2.3 7.2-6.3-4.6L5.7 21l2.3-7.2-6-4.4h7.6z"/></svg></div><h4 data-i18n="why.c1t">Player Trust</h4><p data-i18n="why.c1d">Talent signs with agents who look established and credible online.</p></div>
+      <div class="wn-card reveal-scale" style="transition-delay:.15s"><div class="wn-icon"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg></div><h4 data-i18n="why.c2t">Club Credibility</h4><p data-i18n="why.c2d">Sporting directors vet your professionalism before any meeting.</p></div>
+      <div class="wn-card reveal-scale" style="transition-delay:.25s"><div class="wn-icon"><svg viewBox="0 0 24 24"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><h4 data-i18n="why.c3t">Sponsor Attraction</h4><p data-i18n="why.c3d">Brands back agents with visible reach and a strong reputation.</p></div>
+      <div class="wn-card reveal-scale" style="transition-delay:.35s"><div class="wn-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg></div><h4 data-i18n="why.c4t">Global Visibility</h4><p data-i18n="why.c4d">Be found by players, clubs and partners across every market.</p></div>
+    </div>
+    <p class="whynow-foot reveal" data-i18n="why.foot">The modern football industry rewards visibility, professionalism and credibility. Authority is no longer optional.</p>
+  </div>
+</section>
+
+<!-- PACKAGES -->
 <section class="packs-section" id="packs">
-  <div class="packs-bg-blob"></div>
   <div class="container">
     <div class="packs-header reveal">
-      <p class="section-eyebrow">Our Services</p>
-      <h2 class="section-title">Built for Every Stage<br>of Your Career</h2>
+      <p class="section-eyebrow" data-i18n="packs.eyebrow">Our Services</p>
+      <h2 class="section-title" data-i18n="packs.title">Authority Packages</h2>
       <div class="gold-rule"></div>
-      <p>From your first digital footprint to full international positioning &mdash; every pack is designed around one outcome: authority.</p>
+      <p data-i18n="packs.sub">Three tiers built around one outcome: positioning you as an authority in football representation.</p>
     </div>
     <div class="packs-grid">
-      <div class="pack-card reveal-scale tilt" style="transition-delay:.05s">
-        <p class="pack-tier">Pack 01</p><h3 class="pack-name">Foundation</h3>
-        <p class="pack-price">USD 1,500 <span>&ndash; 2,500</span></p><div class="pack-divider"></div>
-        <ul class="pack-items"><li>Professional website (1&ndash;5 pages)</li><li>Domain &amp; initial setup</li><li>Personal brand design</li><li>Contact form</li><li>WhatsApp integration</li><li>Optimized professional profile</li><li>Mobile-first version</li></ul>
-        <div class="pack-result">"When a player or club Googles you, they find a professional presence."</div>
+      <div class="pack-card reveal-scale" style="transition-delay:.05s">
+        <p class="pack-tier" data-i18n="packs.s1tier">Starter</p>
+        <h3 class="pack-name" data-i18n="packs.s1name">Starter Authority</h3>
+        <div class="pack-price">USD 2,000</div>
+        <div class="pack-divider"></div>
+        <ul class="pack-items">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s1i1">Premium Website</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s1i2">Personal Brand Positioning</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s1i3">Mobile Optimization</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s1i4">Lead Capture System</span></li>
+        </ul>
+        <a href="#contact" class="btn-pack" data-i18n="packs.choose">Get Started</a>
       </div>
-      <div class="pack-card reveal-scale tilt" style="transition-delay:.15s">
-        <p class="pack-tier">Pack 02</p><h3 class="pack-name">Authority</h3>
-        <p class="pack-price">USD 4,000 <span>&ndash; 7,500</span></p><div class="pack-divider"></div>
-        <ul class="pack-items"><li>Everything in Foundation</li><li>Personal branding</li><li>Professional biography</li><li>Digital player portfolio</li><li>Instagram &amp; LinkedIn integration</li><li>Initial SEO optimization</li><li>Digital press kit</li><li>News section</li><li>Meeting scheduler</li></ul>
-        <div class="pack-result">"Move from having a presence to being perceived as an authority."</div>
+      <div class="pack-card featured reveal-scale" style="transition-delay:.15s">
+        <div class="pack-badge" data-i18n="packs.popular">Most Popular</div>
+        <p class="pack-tier" data-i18n="packs.s2tier">Professional</p>
+        <h3 class="pack-name" data-i18n="packs.s2name">Professional Authority</h3>
+        <div class="pack-price">USD 5,000</div>
+        <div class="pack-divider"></div>
+        <ul class="pack-items">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s2i1">Everything in Starter</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s2i2">LinkedIn Optimization</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s2i3">CRM Integration</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s2i4">Automated Lead Flows</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s2i5">Authority Content Strategy</span></li>
+        </ul>
+        <a href="#contact" class="btn-pack" data-i18n="packs.choose">Get Started</a>
       </div>
-      <div class="pack-card reveal-scale tilt" style="transition-delay:.25s">
-        <p class="pack-tier">Pack 03</p><h3 class="pack-name">Elite</h3>
-        <p class="pack-price">USD 10,000 <span>&ndash; 20,000</span></p><div class="pack-divider"></div>
-        <ul class="pack-items"><li>Premium website</li><li>Complete personal brand</li><li>Audiovisual production</li><li>Authority articles</li><li>LinkedIn strategy</li><li>Reputation management</li><li>Acquisition funnel</li><li>Basic CRM</li><li>WhatsApp automations</li><li>Club &amp; investor decks</li></ul>
-        <div class="pack-result">"Position yourself at the level of international agencies."</div>
-      </div>
-      <div class="pack-card reveal-scale tilt" style="transition-delay:.35s">
-        <p class="pack-tier">Pack 04</p><h3 class="pack-name">Done For You</h3>
-        <p class="pack-price">USD 2,000 <span>&ndash; 5,000 / mo</span></p><div class="pack-divider"></div>
-        <ul class="pack-items"><li>Permanent website updates</li><li>LinkedIn publications</li><li>Content management</li><li>Graphic design</li><li>New landing pages</li><li>Ongoing SEO</li><li>Priority support</li></ul>
-        <div class="pack-result">"The agent delegates their entire digital presence completely."</div>
-      </div>
-    </div>
-    <div class="signature-offer reveal">
-      <div class="sig-content">
-        <p class="sig-eyebrow">&#9733; Most Popular &middot; Fastest to Close</p>
-        <h3 class="sig-title">Agent Authority Signature</h3>
-        <p class="sig-desc">The complete package for the serious agent who wants to move fast. Premium web, personal brand, optimized LinkedIn, WhatsApp integration, meeting calendar, professional biography and PDF dossier &mdash; all in one.</p>
-        <div class="sig-items"><span class="sig-item">Premium Web</span><span class="sig-item">Personal Brand</span><span class="sig-item">LinkedIn</span><span class="sig-item">WhatsApp</span><span class="sig-item">Meeting Calendar</span><span class="sig-item">Biography</span><span class="sig-item">PDF Dossier</span></div>
-      </div>
-      <div class="sig-price-block">
-        <div class="sig-price">$2,997</div>
-        <div class="sig-price-note">one-time investment</div>
-        <a href="#contact" class="btn-gold">Get Started</a>
+      <div class="pack-card reveal-scale" style="transition-delay:.25s">
+        <p class="pack-tier" data-i18n="packs.s3tier">Elite</p>
+        <h3 class="pack-name" data-i18n="packs.s3name">Elite Authority</h3>
+        <div class="pack-price">USD 10,000<span>+</span></div>
+        <div class="pack-divider"></div>
+        <ul class="pack-items">
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s3i1">Full Digital Ecosystem</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s3i2">AI Automation</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s3i3">Personal Brand Infrastructure</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s3i4">International Positioning</span></li>
+          <li><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg><span data-i18n="packs.s3i5">Investor &amp; Sponsor Presentation Assets</span></li>
+        </ul>
+        <a href="#contact" class="btn-pack" data-i18n="packs.choose">Get Started</a>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PROCESS -->
 <section class="process-section" id="process">
   <div class="container">
     <div class="process-header reveal">
-      <p class="section-eyebrow">How It Works</p>
-      <h2 class="section-title">Three Steps to Authority</h2>
+      <p class="section-eyebrow" data-i18n="proc.eyebrow">How We Work</p>
+      <h2 class="section-title" data-i18n="proc.title">Our Process</h2>
       <div class="gold-rule"></div>
     </div>
-    <div class="process-steps">
-      <div class="process-step reveal" style="transition-delay:.05s">
-        <div class="step-icon" data-icon="diagnosis">
-          <svg viewBox="0 0 64 64"><circle class="draw" cx="27" cy="27" r="17" style="--len:107"/><line class="draw d2" x1="39" y1="39" x2="54" y2="54" style="--len:21"/><circle class="pulse" cx="27" cy="27" r="6" fill="#C9A84C" stroke="none"/></svg>
-        </div>
-        <span class="step-num">STEP 01</span><h3 class="step-title">Diagnosis</h3>
-        <p class="step-desc">We audit your current digital footprint, analyze your market positioning, and define the authority gap between where you are and where you need to be.</p>
-      </div>
-      <div class="process-step reveal" style="transition-delay:.2s">
-        <div class="step-icon" data-icon="build">
-          <svg viewBox="0 0 64 64"><rect class="draw" x="14" y="34" width="14" height="16" style="--len:60"/><rect class="draw d2" x="30" y="24" width="14" height="26" style="--len:80"/><rect class="draw d3" x="36" y="14" width="14" height="36" style="--len:100"/><circle class="pulse" cx="21" cy="28" r="4" fill="#C9A84C" stroke="none"/></svg>
-        </div>
-        <span class="step-num">STEP 02</span><h3 class="step-title">Construction</h3>
-        <p class="step-desc">We build every element of your digital authority &mdash; web, brand, content, profiles &mdash; with the precision and quality your reputation demands.</p>
-      </div>
-      <div class="process-step reveal" style="transition-delay:.35s">
-        <div class="step-icon" data-icon="authority">
-          <svg viewBox="0 0 64 64"><polygon class="draw spin" points="32,10 39,25 55,27 43,38 46,54 32,46 18,54 21,38 9,27 25,25" style="--len:170"/><circle class="pulse" cx="32" cy="32" r="5" fill="#C9A84C" stroke="none"/></svg>
-        </div>
-        <span class="step-num">STEP 03</span><h3 class="step-title">Authority</h3>
-        <p class="step-desc">You launch with a presence that commands respect. Players, clubs, and sponsors find exactly what they expect from a top-tier FIFA agent.</p>
-      </div>
+    <div class="timeline">
+      <div class="tl-step reveal-left"><div class="tl-dot">01</div><h4 data-i18n="proc.s1t">Discovery &amp; Audit</h4><p data-i18n="proc.s1d">We map your current presence, your market and the authority gap holding you back.</p></div>
+      <div class="tl-step reveal-left" style="transition-delay:.1s"><div class="tl-dot">02</div><h4 data-i18n="proc.s2t">Authority Strategy</h4><p data-i18n="proc.s2d">We define your positioning, narrative and the assets that will set you apart.</p></div>
+      <div class="tl-step reveal-left" style="transition-delay:.2s"><div class="tl-dot">03</div><h4 data-i18n="proc.s3t">Design &amp; Infrastructure</h4><p data-i18n="proc.s3d">We build your web, brand and systems with the precision your reputation demands.</p></div>
+      <div class="tl-step reveal-left" style="transition-delay:.3s"><div class="tl-dot">04</div><h4 data-i18n="proc.s4t">Launch &amp; Growth</h4><p data-i18n="proc.s4d">You launch with a presence that commands respect — and keeps compounding.</p></div>
     </div>
   </div>
 </section>
 
-<section class="why-section" id="why">
-  <div class="why-bg-blob"></div>
+<!-- CASE STUDIES -->
+<section class="cases-section" id="cases">
+  <div class="cases-blob"></div>
   <div class="container">
-    <div class="why-inner">
-      <div class="why-text reveal-left">
-        <p class="section-eyebrow">Why Agent Authority</p>
-        <h2 class="section-title">Not a marketing<br>agency. A firm.</h2>
-        <div class="gold-rule"></div>
-        <p>Generic agencies build websites. We build reputations. Every decision &mdash; from typography to content strategy &mdash; is made with one question in mind: does this make the agent look like the authority they are?</p>
-        <p style="margin-top:1rem">We work exclusively in the football representation space, which means we understand the language, the stakes, and the expectations of everyone at the table.</p>
+    <div class="cases-header reveal">
+      <p class="section-eyebrow" data-i18n="cases.eyebrow">Selected Work</p>
+      <h2 class="section-title" data-i18n="cases.title">Recent Authority Projects</h2>
+      <div class="gold-rule"></div>
+    </div>
+    <p class="cases-note reveal" data-i18n="cases.note">Project showcase — sample structure, ready for your real case studies.</p>
+    <div class="cases-grid">
+      <div class="case-card reveal-scale" style="transition-delay:.05s">
+        <div class="case-img"><span data-i18n="cases.imgph">Project image</span></div>
+        <div class="case-body">
+          <p class="case-tag" data-i18n="cases.c1tag">Personal Brand · Web</p>
+          <h4 data-i18n="cases.c1title">Project Title</h4>
+          <div class="case-row"><span class="lbl" data-i18n="cases.lblproblem">Problem</span><span class="val" data-i18n="cases.c1problem">A summary of the challenge the agent faced before working with us.</span></div>
+          <div class="case-row"><span class="lbl" data-i18n="cases.lblsolution">Solution</span><span class="val" data-i18n="cases.c1solution">What we built and the strategy behind it.</span></div>
+          <div class="case-row result"><span class="lbl" data-i18n="cases.lblresult">Result</span><span class="val" data-i18n="cases.c1result">The measurable outcome will go here.</span></div>
+        </div>
       </div>
-      <div class="why-grid reveal-right">
-        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></div><h4>Football-Specific</h4><p>We speak the language of clubs, agents, and transfers. No generic marketing playbooks.</p></div>
-        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></div><h4>Fast Delivery</h4><p>The Signature pack goes live in 10 business days. No endless revisions.</p></div>
-        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.31 4.31a11.95 11.95 0 015.81-5.52l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.94"/></svg></div><h4>Measurable Results</h4><p>Every build is optimized to be found. We track visibility, not just aesthetics.</p></div>
-        <div class="why-card"><div class="why-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg></div><h4>Elite Discretion</h4><p>We operate with the same confidentiality you apply to your transfers.</p></div>
+      <div class="case-card reveal-scale" style="transition-delay:.15s">
+        <div class="case-img"><span data-i18n="cases.imgph">Project image</span></div>
+        <div class="case-body">
+          <p class="case-tag" data-i18n="cases.c2tag">Full Ecosystem</p>
+          <h4 data-i18n="cases.c2title">Project Title</h4>
+          <div class="case-row"><span class="lbl" data-i18n="cases.lblproblem">Problem</span><span class="val" data-i18n="cases.c2problem">A summary of the challenge the agent faced before working with us.</span></div>
+          <div class="case-row"><span class="lbl" data-i18n="cases.lblsolution">Solution</span><span class="val" data-i18n="cases.c2solution">What we built and the strategy behind it.</span></div>
+          <div class="case-row result"><span class="lbl" data-i18n="cases.lblresult">Result</span><span class="val" data-i18n="cases.c2result">The measurable outcome will go here.</span></div>
+        </div>
+      </div>
+      <div class="case-card reveal-scale" style="transition-delay:.25s">
+        <div class="case-img"><span data-i18n="cases.imgph">Project image</span></div>
+        <div class="case-body">
+          <p class="case-tag" data-i18n="cases.c3tag">International Positioning</p>
+          <h4 data-i18n="cases.c3title">Project Title</h4>
+          <div class="case-row"><span class="lbl" data-i18n="cases.lblproblem">Problem</span><span class="val" data-i18n="cases.c3problem">A summary of the challenge the agent faced before working with us.</span></div>
+          <div class="case-row"><span class="lbl" data-i18n="cases.lblsolution">Solution</span><span class="val" data-i18n="cases.c3solution">What we built and the strategy behind it.</span></div>
+          <div class="case-row result"><span class="lbl" data-i18n="cases.lblresult">Result</span><span class="val" data-i18n="cases.c3result">The measurable outcome will go here.</span></div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<!-- FINAL CTA -->
+<section class="finalcta-section">
+  <div class="finalcta-blob"></div>
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title" data-i18n="final.title">Ready To Build Your Authority?</h2>
+      <p data-i18n="final.text">Your reputation begins long before the first meeting. Build a digital presence worthy of the players, clubs and opportunities you want to attract.</p>
+      <div class="finalcta-actions">
+        <a href="#contact" class="btn-gold" data-i18n="final.cta1">Schedule Your Private Consultation</a>
+        <a href="#contact" class="btn-outline-white" data-i18n="final.cta2">Request Your Authority Audit</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section class="contact-section" id="contact">
-  <div class="contact-bg-blob"></div>
   <div class="container">
     <div class="contact-inner">
       <div class="contact-text reveal-left">
-        <p class="section-eyebrow">Start Here</p>
-        <h2 class="section-title">Let's build your<br>authority.</h2>
+        <p class="section-eyebrow" data-i18n="contact.eyebrow">Start Here</p>
+        <h2 class="section-title" data-i18n="contact.title">Let's build your authority.</h2>
         <div class="gold-rule"></div>
-        <p>Book a 30-minute strategy call. We'll audit your current digital presence, identify the gaps, and map exactly what needs to be built.</p>
-        <p style="margin-top:1rem;font-style:italic;color:rgba(255,255,255,.4)">No pitch. No pressure. Just clarity on where you stand and what it takes to get where you should be.</p>
+        <p data-i18n="contact.text">Book a private strategy call. We'll audit your current presence, identify the gaps, and map exactly what needs to be built.</p>
         <div class="contact-details">
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.28 6.72 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.37c0-.52-.35-.97-.85-1.09l-4.42-1.11c-.44-.11-.9.06-1.17.42l-.97 1.29c-.28.38-.77.54-1.21.38a12.04 12.04 0 01-7.14-7.14c-.16-.44 0-.93.38-1.21l1.29-.97c.36-.27.53-.73.42-1.17L6.96 3.1a1.13 1.13 0 00-1.09-.85H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg></div><span>[YOUR WHATSAPP NUMBER]</span></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.24a2.25 2.25 0 01-1.07 1.92l-7.5 4.61a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.92V6.75"/></svg></div><span>[YOUR EMAIL ADDRESS]</span></div>
@@ -424,17 +460,17 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
       </div>
       <div class="contact-form reveal-right">
         <div class="form-row">
-          <div class="form-group"><label>First Name</label><input type="text" placeholder="John" /></div>
-          <div class="form-group"><label>Last Name</label><input type="text" placeholder="Smith" /></div>
+          <div class="form-group"><label data-i18n="form.first">First Name</label><input type="text" data-i18n-ph="form.firstph" placeholder="John" /></div>
+          <div class="form-group"><label data-i18n="form.last">Last Name</label><input type="text" data-i18n-ph="form.lastph" placeholder="Smith" /></div>
         </div>
-        <div class="form-group"><label>Email</label><input type="email" placeholder="john@example.com" /></div>
-        <div class="form-group"><label>WhatsApp / Phone</label><input type="tel" placeholder="+1 000 000 0000" /></div>
-        <div class="form-group"><label>I'm interested in</label>
-          <select><option value="">Select a pack...</option><option>Foundation &mdash; USD 1,500&ndash;2,500</option><option>Authority &mdash; USD 4,000&ndash;7,500</option><option>Elite &mdash; USD 10,000&ndash;20,000</option><option>Done For You &mdash; USD 2,000&ndash;5,000/mo</option><option>Signature &mdash; USD 2,997</option><option>I'm not sure yet</option></select>
+        <div class="form-group"><label data-i18n="form.email">Email</label><input type="email" placeholder="john@example.com" /></div>
+        <div class="form-group"><label data-i18n="form.phone">WhatsApp / Phone</label><input type="tel" placeholder="+1 000 000 0000" /></div>
+        <div class="form-group"><label data-i18n="form.interest">I'm interested in</label>
+          <select id="pkgSelect"><option value="" data-i18n="form.select">Select a package...</option><option data-i18n="form.opt1">Starter Authority — USD 2,000</option><option data-i18n="form.opt2">Professional Authority — USD 5,000</option><option data-i18n="form.opt3">Elite Authority — USD 10,000+</option><option data-i18n="form.opt4">Authority Audit</option><option data-i18n="form.opt5">Not sure yet</option></select>
         </div>
-        <div class="form-group"><label>Tell us about yourself</label><textarea placeholder="How many players do you represent? What markets do you work in?"></textarea></div>
-        <button class="btn-gold" style="width:100%;font-size:.9rem;padding:1.1rem" onclick="handleFormSubmit(event)">Request Strategy Call &rarr;</button>
-        <p style="font-size:.74rem;color:rgba(255,255,255,.3);text-align:center;margin-top:.3rem">We respond within 24 hours. All conversations are confidential.</p>
+        <div class="form-group"><label data-i18n="form.msg">Tell us about yourself</label><textarea data-i18n-ph="form.msgph" placeholder="How many players do you represent? What markets do you work in?"></textarea></div>
+        <button class="btn-gold" style="width:100%;font-size:.9rem;padding:1.1rem" onclick="handleFormSubmit(event)" data-i18n="form.submit">Request Strategy Call &rarr;</button>
+        <p style="font-size:.74rem;color:var(--slate);text-align:center;margin-top:.3rem" data-i18n="form.note">We respond within 24 hours. All conversations are confidential.</p>
       </div>
     </div>
   </div>
@@ -451,6 +487,110 @@ footer{background:#000913;padding:2.6rem 0;border-top:1px solid rgba(201,168,76,
 </footer>
 
 <script>
+// ══════════ i18n DICTIONARY ══════════
+const I18N={
+ en:{
+  'nav.problem':'The Problem','nav.why':'Why Now','nav.packages':'Packages','nav.process':'Process','nav.cta':'Book a Call',
+  'hero.eyebrow':"Authority Isn't Claimed. It's Built.",
+  'hero.title':'Build a Football Agency Players <span class="hl">Trust.</span> Clubs <span class="hl">Respect.</span> Sponsors <span class="hl">Notice.</span>',
+  'hero.sub':'We help football agents establish digital authority, attract elite talent, and position themselves as industry leaders through premium branding, web infrastructure and strategic visibility.',
+  'hero.cta1':'Book a Private Strategy Call','hero.cta2':'Request a Digital Authority Audit','hero.scroll':'Scroll',
+  'problem.eyebrow':'The Reality','problem.title':'Most Football Agents Are Invisible Online',
+  'problem.lead':'Without a professional digital presence, opportunities are lost before conversations even begin.',
+  'problem.p1':'Players search online before signing.','problem.p2':'Clubs evaluate credibility before engaging.','problem.p3':'Sponsors invest in visibility and reputation.',
+  'why.eyebrow':'The Shift','why.title':'Why Digital Authority Matters More Than Ever',
+  'why.c1t':'Player Trust','why.c1d':'Talent signs with agents who look established and credible online.',
+  'why.c2t':'Club Credibility','why.c2d':'Sporting directors vet your professionalism before any meeting.',
+  'why.c3t':'Sponsor Attraction','why.c3d':'Brands back agents with visible reach and a strong reputation.',
+  'why.c4t':'Global Visibility','why.c4d':'Be found by players, clubs and partners across every market.',
+  'why.foot':'The modern football industry rewards visibility, professionalism and credibility. Authority is no longer optional.',
+  'packs.eyebrow':'Our Services','packs.title':'Authority Packages','packs.sub':'Three tiers built around one outcome: positioning you as an authority in football representation.',
+  'packs.popular':'Most Popular','packs.choose':'Get Started',
+  'packs.s1tier':'Starter','packs.s1name':'Starter Authority','packs.s1i1':'Premium Website','packs.s1i2':'Personal Brand Positioning','packs.s1i3':'Mobile Optimization','packs.s1i4':'Lead Capture System',
+  'packs.s2tier':'Professional','packs.s2name':'Professional Authority','packs.s2i1':'Everything in Starter','packs.s2i2':'LinkedIn Optimization','packs.s2i3':'CRM Integration','packs.s2i4':'Automated Lead Flows','packs.s2i5':'Authority Content Strategy',
+  'packs.s3tier':'Elite','packs.s3name':'Elite Authority','packs.s3i1':'Full Digital Ecosystem','packs.s3i2':'AI Automation','packs.s3i3':'Personal Brand Infrastructure','packs.s3i4':'International Positioning','packs.s3i5':'Investor & Sponsor Presentation Assets',
+  'proc.eyebrow':'How We Work','proc.title':'Our Process',
+  'proc.s1t':'Discovery & Audit','proc.s1d':'We map your current presence, your market and the authority gap holding you back.',
+  'proc.s2t':'Authority Strategy','proc.s2d':'We define your positioning, narrative and the assets that will set you apart.',
+  'proc.s3t':'Design & Infrastructure','proc.s3d':'We build your web, brand and systems with the precision your reputation demands.',
+  'proc.s4t':'Launch & Growth','proc.s4d':'You launch with a presence that commands respect — and keeps compounding.',
+  'cases.eyebrow':'Selected Work','cases.title':'Recent Authority Projects','cases.note':'Project showcase — sample structure, ready for your real case studies.',
+  'cases.imgph':'Project image','cases.lblproblem':'Problem','cases.lblsolution':'Solution','cases.lblresult':'Result',
+  'cases.c1tag':'Personal Brand · Web','cases.c1title':'Project Title','cases.c1problem':'A summary of the challenge the agent faced before working with us.','cases.c1solution':'What we built and the strategy behind it.','cases.c1result':'The measurable outcome will go here.',
+  'cases.c2tag':'Full Ecosystem','cases.c2title':'Project Title','cases.c2problem':'A summary of the challenge the agent faced before working with us.','cases.c2solution':'What we built and the strategy behind it.','cases.c2result':'The measurable outcome will go here.',
+  'cases.c3tag':'International Positioning','cases.c3title':'Project Title','cases.c3problem':'A summary of the challenge the agent faced before working with us.','cases.c3solution':'What we built and the strategy behind it.','cases.c3result':'The measurable outcome will go here.',
+  'final.title':'Ready To Build Your Authority?','final.text':'Your reputation begins long before the first meeting. Build a digital presence worthy of the players, clubs and opportunities you want to attract.',
+  'final.cta1':'Schedule Your Private Consultation','final.cta2':'Request Your Authority Audit',
+  'contact.eyebrow':'Start Here','contact.title':"Let's build your authority.",'contact.text':"Book a private strategy call. We'll audit your current presence, identify the gaps, and map exactly what needs to be built.",
+  'form.first':'First Name','form.firstph':'John','form.last':'Last Name','form.lastph':'Smith','form.email':'Email','form.phone':'WhatsApp / Phone','form.interest':"I'm interested in",
+  'form.select':'Select a package...','form.opt1':'Starter Authority — USD 2,000','form.opt2':'Professional Authority — USD 5,000','form.opt3':'Elite Authority — USD 10,000+','form.opt4':'Authority Audit','form.opt5':'Not sure yet',
+  'form.msg':'Tell us about yourself','form.msgph':'How many players do you represent? What markets do you work in?','form.submit':'Request Strategy Call →','form.note':'We respond within 24 hours. All conversations are confidential.',
+  'form.sent':'✅ Request sent — we\'ll be in touch within 24h'
+ },
+ es:{
+  'nav.problem':'El Problema','nav.why':'Por Qué Ahora','nav.packages':'Paquetes','nav.process':'Proceso','nav.cta':'Agendar Llamada',
+  'hero.eyebrow':'La Autoridad No Se Reclama. Se Construye.',
+  'hero.title':'Construí una Agencia de Fútbol en la que los Jugadores <span class="hl">Confían.</span> Los Clubes <span class="hl">Respetan.</span> Los Sponsors <span class="hl">Notan.</span>',
+  'hero.sub':'Ayudamos a agentes de fútbol a establecer autoridad digital, atraer talento de élite y posicionarse como líderes del sector mediante branding premium, infraestructura web y visibilidad estratégica.',
+  'hero.cta1':'Agendá una Llamada Estratégica Privada','hero.cta2':'Solicitá una Auditoría de Autoridad Digital','hero.scroll':'Desliza',
+  'problem.eyebrow':'La Realidad','problem.title':'La Mayoría de los Agentes de Fútbol Son Invisibles Online',
+  'problem.lead':'Sin una presencia digital profesional, las oportunidades se pierden antes de que la conversación siquiera empiece.',
+  'problem.p1':'Los jugadores investigan online antes de firmar.','problem.p2':'Los clubes evalúan tu credibilidad antes de involucrarse.','problem.p3':'Los sponsors invierten en visibilidad y reputación.',
+  'why.eyebrow':'El Cambio','why.title':'Por Qué la Autoridad Digital Importa Más Que Nunca',
+  'why.c1t':'Confianza del Jugador','why.c1d':'El talento firma con agentes que se ven establecidos y creíbles online.',
+  'why.c2t':'Credibilidad ante Clubes','why.c2d':'Los directores deportivos evalúan tu profesionalismo antes de cualquier reunión.',
+  'why.c3t':'Atracción de Sponsors','why.c3d':'Las marcas apuestan por agentes con alcance visible y buena reputación.',
+  'why.c4t':'Visibilidad Global','why.c4d':'Que te encuentren jugadores, clubes y socios en todos los mercados.',
+  'why.foot':'La industria moderna del fútbol premia la visibilidad, el profesionalismo y la credibilidad. La autoridad ya no es opcional.',
+  'packs.eyebrow':'Nuestros Servicios','packs.title':'Paquetes de Autoridad','packs.sub':'Tres niveles construidos en torno a un único resultado: posicionarte como una autoridad en la representación futbolística.',
+  'packs.popular':'Más Elegido','packs.choose':'Empezar',
+  'packs.s1tier':'Inicial','packs.s1name':'Starter Authority','packs.s1i1':'Sitio Web Premium','packs.s1i2':'Posicionamiento de Marca Personal','packs.s1i3':'Optimización Móvil','packs.s1i4':'Sistema de Captación de Leads',
+  'packs.s2tier':'Profesional','packs.s2name':'Professional Authority','packs.s2i1':'Todo lo de Starter','packs.s2i2':'Optimización de LinkedIn','packs.s2i3':'Integración con CRM','packs.s2i4':'Flujos de Leads Automatizados','packs.s2i5':'Estrategia de Contenido de Autoridad',
+  'packs.s3tier':'Élite','packs.s3name':'Elite Authority','packs.s3i1':'Ecosistema Digital Completo','packs.s3i2':'Automatización con IA','packs.s3i3':'Infraestructura de Marca Personal','packs.s3i4':'Posicionamiento Internacional','packs.s3i5':'Material de Presentación para Inversores y Sponsors',
+  'proc.eyebrow':'Cómo Trabajamos','proc.title':'Nuestro Proceso',
+  'proc.s1t':'Descubrimiento y Auditoría','proc.s1d':'Mapeamos tu presencia actual, tu mercado y la brecha de autoridad que te está frenando.',
+  'proc.s2t':'Estrategia de Autoridad','proc.s2d':'Definimos tu posicionamiento, tu narrativa y los activos que te van a diferenciar.',
+  'proc.s3t':'Diseño e Infraestructura','proc.s3d':'Construimos tu web, marca y sistemas con la precisión que tu reputación exige.',
+  'proc.s4t':'Lanzamiento y Crecimiento','proc.s4d':'Lanzás con una presencia que impone respeto — y que sigue creciendo.',
+  'cases.eyebrow':'Trabajos Seleccionados','cases.title':'Proyectos de Autoridad Recientes','cases.note':'Vitrina de proyectos — estructura de ejemplo, lista para tus casos reales.',
+  'cases.imgph':'Imagen del proyecto','cases.lblproblem':'Problema','cases.lblsolution':'Solución','cases.lblresult':'Resultado',
+  'cases.c1tag':'Marca Personal · Web','cases.c1title':'Título del Proyecto','cases.c1problem':'Un resumen del desafío que enfrentaba el agente antes de trabajar con nosotros.','cases.c1solution':'Lo que construimos y la estrategia detrás.','cases.c1result':'El resultado medible irá acá.',
+  'cases.c2tag':'Ecosistema Completo','cases.c2title':'Título del Proyecto','cases.c2problem':'Un resumen del desafío que enfrentaba el agente antes de trabajar con nosotros.','cases.c2solution':'Lo que construimos y la estrategia detrás.','cases.c2result':'El resultado medible irá acá.',
+  'cases.c3tag':'Posicionamiento Internacional','cases.c3title':'Título del Proyecto','cases.c3problem':'Un resumen del desafío que enfrentaba el agente antes de trabajar con nosotros.','cases.c3solution':'Lo que construimos y la estrategia detrás.','cases.c3result':'El resultado medible irá acá.',
+  'final.title':'¿Listo Para Construir Tu Autoridad?','final.text':'Tu reputación empieza mucho antes de la primera reunión. Construí una presencia digital a la altura de los jugadores, clubes y oportunidades que querés atraer.',
+  'final.cta1':'Agendá Tu Consultoría Privada','final.cta2':'Solicitá Tu Auditoría de Autoridad',
+  'contact.eyebrow':'Empezá Acá','contact.title':'Construyamos tu autoridad.','contact.text':'Agendá una llamada estratégica privada. Auditamos tu presencia actual, identificamos las brechas y mapeamos exactamente qué hay que construir.',
+  'form.first':'Nombre','form.firstph':'Juan','form.last':'Apellido','form.lastph':'Pérez','form.email':'Email','form.phone':'WhatsApp / Teléfono','form.interest':'Me interesa',
+  'form.select':'Elegí un paquete...','form.opt1':'Starter Authority — USD 2.000','form.opt2':'Professional Authority — USD 5.000','form.opt3':'Elite Authority — USD 10.000+','form.opt4':'Auditoría de Autoridad','form.opt5':'Todavía no estoy seguro',
+  'form.msg':'Contanos sobre vos','form.msgph':'¿A cuántos jugadores representás? ¿En qué mercados trabajás?','form.submit':'Solicitar Llamada Estratégica →','form.note':'Respondemos en menos de 24 horas. Todas las conversaciones son confidenciales.',
+  'form.sent':'✅ Solicitud enviada — te contactamos en menos de 24h'
+ }
+};
+let currentLang='en';
+function setLang(lang){
+  currentLang=lang;
+  document.documentElement.lang=lang;
+  const dict=I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const k=el.getAttribute('data-i18n');
+    if(dict[k]!==undefined) el.innerHTML=dict[k];
+  });
+  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
+    const k=el.getAttribute('data-i18n-ph');
+    if(dict[k]!==undefined) el.placeholder=dict[k];
+  });
+  document.getElementById('btnES').classList.toggle('active',lang==='es');
+  document.getElementById('btnEN').classList.toggle('active',lang==='en');
+  try{localStorage.setItem('aa_lang',lang)}catch(e){}
+}
+(function initLang(){
+  let saved=null; try{saved=localStorage.getItem('aa_lang')}catch(e){}
+  const nav=(navigator.language||'en').toLowerCase();
+  const lang=saved||(nav.startsWith('es')?'es':'en');
+  setLang(lang);
+})();
+
+// ══════════ NAV / VIDEO / EFFECTS ══════════
 const nav=document.getElementById('mainNav');
 addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>60),{passive:true});
 
@@ -482,7 +622,7 @@ heroVideo.addEventListener('error',()=>fallback.style.opacity='1');
   if(!el||matchMedia('(max-width:768px)').matches)return;
   addEventListener('mousemove',e=>{
     const x=(e.clientX/innerWidth-.5)*2,y=(e.clientY/innerHeight-.5)*2;
-    el.style.transform='rotateY('+(x*5)+'deg) rotateX('+(-y*5)+'deg)';
+    el.style.transform='rotateY('+(x*4)+'deg) rotateX('+(-y*4)+'deg)';
   });
 })();
 
@@ -495,15 +635,11 @@ heroVideo.addEventListener('error',()=>fallback.style.opacity='1');
   for(let i=0;i<N;i++)pts.push({x:Math.random()*w,y:Math.random()*h,vx:(Math.random()-.5)*.3,vy:(Math.random()-.5)*.3});
   function draw(){
     ctx.clearRect(0,0,w,h);
-    for(const p of pts){
-      p.x+=p.vx;p.y+=p.vy;
-      if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
-      ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,7);ctx.fillStyle='rgba(201,168,76,.5)';ctx.fill();
-    }
+    for(const p of pts){p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;
+      ctx.beginPath();ctx.arc(p.x,p.y,1.4,0,7);ctx.fillStyle='rgba(201,168,76,.5)';ctx.fill();}
     for(let i=0;i<pts.length;i++)for(let j=i+1;j<pts.length;j++){
       const dx=pts[i].x-pts[j].x,dy=pts[i].y-pts[j].y,d=Math.hypot(dx,dy);
-      if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(255,255,255,'+(.12*(1-d/130))+')';ctx.lineWidth=.5;ctx.stroke();}
-    }
+      if(d<130){ctx.beginPath();ctx.moveTo(pts[i].x,pts[i].y);ctx.lineTo(pts[j].x,pts[j].y);ctx.strokeStyle='rgba(255,255,255,'+(.12*(1-d/130))+')';ctx.lineWidth=.5;ctx.stroke();}}
     requestAnimationFrame(draw);
   }
   if(!matchMedia('(prefers-reduced-motion:reduce)').matches)draw();
@@ -512,30 +648,15 @@ heroVideo.addEventListener('error',()=>fallback.style.opacity='1');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
 document.querySelectorAll('.reveal,.reveal-left,.reveal-right,.reveal-scale').forEach(el=>io.observe(el));
 
-// process icons draw when visible
-const iconIO=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelector('.step-icon')?.classList.add('go');iconIO.unobserve(e.target);}}),{threshold:.5});
-document.querySelectorAll('.process-step').forEach(s=>iconIO.observe(s));
-
-const cio=new IntersectionObserver(es=>es.forEach(e=>{
-  if(!e.isIntersecting)return;const el=e.target,t=+el.dataset.target,sf=el.dataset.suffix||'';
-  let s=0;const step=t/45;const tm=setInterval(()=>{s+=step;if(s>=t){el.innerHTML=t+'<span class="suffix">'+sf+'</span>';clearInterval(tm);}else el.innerHTML=Math.floor(s)+'<span class="suffix">'+sf+'</span>';},28);
-  cio.unobserve(el);
-}),{threshold:.5});
-document.querySelectorAll('.stat-number[data-target]').forEach(c=>cio.observe(c));
-
-document.querySelectorAll('.tilt').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const r=card.getBoundingClientRect();
-    card.style.setProperty('--mx',(e.clientX-r.left)+'px');
-    card.style.setProperty('--my',(e.clientY-r.top)+'px');
-  });
-});
-
 function handleFormSubmit(e){
   e.preventDefault();const b=e.target;
-  b.innerHTML='&#9989; Request sent &mdash; we\'ll be in touch within 24h';
-  b.style.background='rgba(255,255,255,.15)';b.style.color='#fff';b.style.boxShadow='none';b.disabled=true;
+  b.innerHTML=I18N[currentLang]['form.sent'];
+  b.style.background='var(--navy)';b.style.color='#fff';b.style.boxShadow='none';b.disabled=true;
 }
+// pre-select package when clicking a pack button
+document.querySelectorAll('.btn-pack').forEach((btn,i)=>{
+  btn.addEventListener('click',()=>{const s=document.getElementById('pkgSelect');if(s)s.selectedIndex=i+1;});
+});
 </script>
 </body>
 </html>
