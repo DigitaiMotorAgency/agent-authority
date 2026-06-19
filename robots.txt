@@ -1,5 +1,5 @@
 # Agent Authority — robots.txt
-# https://agentauthority.io
+# https://agentauthority.lat
 
 # All crawlers: full access to public pages
 User-agent: *
@@ -25,4 +25,4 @@ User-agent: DotBot
 Disallow: /
 
 # Sitemaps
-Sitemap: https://agentauthority.io/sitemap.xml
+Sitemap: https://agentauthority.lat/sitemap.xml
